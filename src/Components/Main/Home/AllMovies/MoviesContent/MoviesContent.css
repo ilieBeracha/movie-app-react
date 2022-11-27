@@ -1,0 +1,49 @@
+.MoviesContent {
+    padding-top: 20px;
+    /* background-color: var(--color1); */
+	width: 100%;
+    min-height: 100%;
+    /* background-color: aquamarine; */
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 20px; */
+}
+
+.MoviesContentMovies{
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-around; */
+    align-items: center;
+    overflow-x: scroll;
+    gap: 50px;
+    padding-bottom: 20px;
+}
+
+.MovieContentWhatsPopular{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+    /* background-color:var(--color5) ; */
+}
+
+.MovieContentWhatsPopularBtns{
+    padding-left: 10px;
+}
+
+.MovieContentWhatsPopularBtns button{
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.MovieContentWhatsPopularBtns button:hover{
+    background-color: var(--color8);
+    border-radius: 10px;
+    color: var(--color1);
+}
