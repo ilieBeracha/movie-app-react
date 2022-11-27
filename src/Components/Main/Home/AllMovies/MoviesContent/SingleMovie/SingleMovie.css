@@ -3,33 +3,34 @@
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-	width: 200px;
+    width: 200px;
     min-height: 350px;
     /* background-color: var(--color8); */
     border-radius: 10px;
+    /* box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.11);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.11);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.11);
+    text-align: center; */
+    text-align: center;
 }
 
-.SingleMovie img{
+.SingleMovie img {
     width: 200px;
     height: 300px;
-    /* border-top-left-radius: 20px; */
-    /* border-top-right-radius: 20px; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.SingleMovie:hover{
+.SingleMovie:hover {
     background-color: var(--color8);
 }
 
 
-.SingleMovie h5{
+.SingleMovie h5 {
     margin: 0;
 }
 
-.SingleMovie p{
+.SingleMovie p {
     margin: 0;
     font-size: 13px;
 }
-
-
-
-

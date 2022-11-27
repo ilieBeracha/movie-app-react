@@ -1,32 +1,35 @@
 .UpcomingMovie {
-	display: flex;
+    display: flex;
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-	width: 200px;
+    width: 200px;
     min-height: 350px;
     /* background-color: var(--color8); */
     border-radius: 10px;
+    text-align: center;
 }
 
-.UpcomingMovie img{
-        width: 200px;
-        height: 300px;
-        /* border-top-left-radius: 20px; */
-        /* border-top-right-radius: 20px; */
+.UpcomingMovie img {
+    width: 200px;
+    height: 300px;
+    /* border-top-left-radius: 20px; */
+    /* border-top-right-radius: 20px; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 
-.UpcomingMovie:hover{
+.UpcomingMovie:hover {
     background-color: var(--color8);
 }
 
 
-.UpcomingMovie h5{
+.UpcomingMovie h5 {
     margin: 0;
 }
 
-.UpcomingMovie p{
+.UpcomingMovie p {
     margin: 0;
     font-size: 13px;
 }
