@@ -1,17 +1,13 @@
-.MovieRoute {
+.TvRoute {
 	width: 80%;
+    min-height: 80%;
     /* background-color: aqua; */
     margin: 0 auto;
     display: flex;
-    padding-top: 60px;
+    padding-top: 100px;
 }
 
 /* .GenreDiv{
     position: sticky;
     top: 0;
 } */
-
-.GenreDiv{
-    padding: 10px;
-    background-color: var(--color2);
-}

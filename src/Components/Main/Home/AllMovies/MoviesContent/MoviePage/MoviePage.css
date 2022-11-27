@@ -32,3 +32,13 @@
     gap: 30px;
     overflow-x: scroll;
 }
+
+.MoviePageReviews{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    overflow-x: scroll;
+    /* flex-wrap: wrap; */
+}

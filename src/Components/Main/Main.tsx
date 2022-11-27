@@ -4,6 +4,7 @@ import TvPage from "./Home/AllMovies/MoviesContent/TvPage/TvPage";
 import Home from "./Home/Home";
 import "./Main.css";
 import MovieRoute from "./MovieRoute/MovieRoute";
+import TvRoute from "./TvRoute/TvRoute";
 
 function Main(): JSX.Element {
     return (
@@ -13,7 +14,7 @@ function Main(): JSX.Element {
                 <Route path="/movies" element={<MovieRoute />}></Route>
                 <Route path="/movies/singlemovie/:movieId" element={<MoviePage />}></Route>
                 <Route path="/tv/singletv/:tvId" element={<TvPage />}></Route>
-                <Route path="/tv" element={'tv'}></Route>
+                <Route path="/tv" element={<TvRoute />}></Route>
             </Routes>
         </div>
     );

@@ -3,18 +3,22 @@ import { useParams } from "react-router-dom";
 import { config } from "../../../../../../config/config";
 import { CastInterface } from "../../../../../../model/castInterface";
 import { PopularMoviesInterface } from "../../../../../../model/PopularMoviesInterface";
+import { ReviewsInterface } from "../../../../../../model/ReviewsInterface";
 import { apiService } from "../../../../../../Service/ApiService";
 import Cast from "../../../../../cast/cast";
+import Review from "../Review/Review";
 import "./MoviePage.css";
 
 function MoviePage(): JSX.Element {
     const [movie, setMovie] = useState<PopularMoviesInterface>();
-    const [cast,setCast] = useState<CastInterface[]>([])
+    const [cast,setCast] = useState<CastInterface[]>([]);
+    const [reviews,setReviews] = useState<ReviewsInterface[]>()
     const movieParams = useParams();
     useEffect(() => {
         apiService.getMovieById(movieParams.movieId).then(res => setMovie(res));
-        apiService.CastMovie(movieParams.movieId).then(res=> setCast(res))
-        console.log(movie)
+        apiService.CastMovie(movieParams.movieId).then(res=> setCast(res));
+        apiService.getMovieReviews(movieParams.movieId).then(res=> setReviews(res))
+        console.log(reviews)
     }, [])
     return (
         <div className="MoviePage">
@@ -37,6 +41,9 @@ function MoviePage(): JSX.Element {
             <div className="castDiv">
                 {cast.map((member)=> <Cast cast={member}/>)}
             </div>
+            {/* <div className="MoviePageReviews">
+                {reviews?.map((review)=> <Review review={review}/>)}
+            </div> */}
         </div>
     );
 }

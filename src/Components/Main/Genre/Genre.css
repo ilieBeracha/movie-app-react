@@ -1,0 +1,15 @@
+.Genre {
+	display: flex;
+}
+
+.Genre p{
+    /* margin-bottom: 5px; */
+    /* padding: 5px; */
+    margin: 0;
+    width: 100%;
+    padding: 5px;
+}
+
+.Genre p:hover{
+    background-color: var(--color8);
+}
