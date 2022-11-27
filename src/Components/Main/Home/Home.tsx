@@ -1,11 +1,11 @@
 import AllMovies from "./AllMovies/AllMovies";
 import "./Home.css";
-import WelcomeMovie from "./WelcomeMovie/WelcomeMovie";
+import WelcomeDiv from "./WelcomeMovie/WelcomeDiv";
 
 function Home(): JSX.Element {
     return (
         <div className="Home">
-			<WelcomeMovie />
+			<WelcomeDiv />
             <AllMovies />
         </div>
     );

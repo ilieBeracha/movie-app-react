@@ -1,0 +1,32 @@
+.UpcomingMovie {
+	display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+	width: 200px;
+    min-height: 350px;
+    /* background-color: var(--color8); */
+    border-radius: 10px;
+}
+
+.UpcomingMovie img{
+        width: 200px;
+        height: 300px;
+        /* border-top-left-radius: 20px; */
+        /* border-top-right-radius: 20px; */
+}
+
+
+.UpcomingMovie:hover{
+    background-color: var(--color8);
+}
+
+
+.UpcomingMovie h5{
+    margin: 0;
+}
+
+.UpcomingMovie p{
+    margin: 0;
+    font-size: 13px;
+}
