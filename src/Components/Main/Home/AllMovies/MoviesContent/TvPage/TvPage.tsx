@@ -29,7 +29,7 @@ function TvPage(): JSX.Element {
                     <p>Number of eposodes: {tv?.number_of_episodes}</p>
                 </div>
             </div>
-            <div className="tvPageBottomDiv">
+            <div className="TvPageRateDiv">
                 <p>Popularity: {tv?.popularity}</p>
                 <p>Avg: {tv?.vote_average}</p>
             </div>

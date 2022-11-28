@@ -1,6 +1,6 @@
 import AllMovies from "./AllMovies/AllMovies";
 import "./Home.css";
-import WelcomeDiv from "./WelcomeMovie/WelcomeDiv";
+import WelcomeDiv from "./WelcomeDiv/WelcomeDiv";
 
 function Home(): JSX.Element {
     return (

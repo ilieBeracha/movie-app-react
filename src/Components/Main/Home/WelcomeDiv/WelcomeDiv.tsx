@@ -6,6 +6,10 @@ import "./WelcomeDiv.css";
 
 function WelcomeDiv(): JSX.Element {
 
+    // function searchMoviesOrTvShows(query:string){
+        
+    // }
+
     return (
         <div className="WelcomeDiv">
             <div className="WelcomeDivDesp">
@@ -15,7 +19,8 @@ function WelcomeDiv(): JSX.Element {
                     <h2>Explore now.</h2>
                 </div>
                 <div className="WelcomeDivAnchor">
-                    <a href="#MovieContentWhatsPopular">Dicover</a>
+                    {/* <input onChange={(e)=>searchMoviesOrTvShows(e.target.value)} type="text" placeholder="Search" /> */}
+                    <button>Dicover</button>
                 </div>
             </div>
             <div className="WelcomeDivImage">

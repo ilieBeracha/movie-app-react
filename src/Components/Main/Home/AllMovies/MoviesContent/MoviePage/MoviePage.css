@@ -33,12 +33,18 @@
     overflow-x: scroll;
 }
 
-.MoviePageReviews{
+/* .MoviePageReviews{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
     overflow-x: scroll;
-    /* flex-wrap: wrap; */
+} */
+
+.MoviePageRateDiv{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    gap: 30px;
 }

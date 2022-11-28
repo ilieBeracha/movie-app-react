@@ -68,7 +68,7 @@
     margin-top: 80px;
 }
 
-.WelcomeDivAnchor a {
+.WelcomeDivAnchor button {
     text-decoration: none;
     color: var(--color5);
     border: 2px solid var(--color8);
@@ -81,7 +81,7 @@
     right: 0;
 }
 
-.WelcomeDivAnchor a:hover {
+.WelcomeDivAnchor button:hover {
     background-color: var(--color8);
     color: var(--color1);
 }
@@ -89,6 +89,20 @@
 .WelcomeDivDesp {
     position: relative;
     height: 300px;
+}
+.WelcomeDivAnchor{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.WelcomeDivAnchor input{
+    width: 50%;
+    margin: 0 auto;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid var(--color5);
+    background-color: transparent;
 }
 
 
