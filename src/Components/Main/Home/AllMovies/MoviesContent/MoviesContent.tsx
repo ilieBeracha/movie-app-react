@@ -40,7 +40,7 @@ function MoviesContent(): JSX.Element {
             <div className="MoviesContentDiv">
                 {movieOrTv ?
                     movies?.map((movie) => <SingleMovie key={movie.id} movie={movie} />)
-                    : movies?.map((tv) => <SingleTv tv={tv} />)}
+                    : movies?.map((tv) => <SingleTv key={tv.id} tv={tv} />)}
             </div>
             <div className="MoviesContentUpcoming">
                 <h3>Upcomings: </h3>
@@ -52,7 +52,7 @@ function MoviesContent(): JSX.Element {
                 </div>
             </div>
             <div className="MoviesContentUpcomingDiv">
-                    {upcomings.map((res)=> <UpcomingMovie movie={res}/> )}
+                    {upcomings.map((res)=> <UpcomingMovie key={res.id} movie={res}/> )}
             </div>
         </div>
     );

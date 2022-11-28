@@ -39,7 +39,7 @@ function TvRoute(): JSX.Element {
                 </div>
             </div>
             <div className="displayTvShowsBy">
-                {!tvShows ? 'Loading...'
+                {!tvShows ? <div className="loader">Loading...</div>
                     : tvShows?.map((tv) => <SingleTv key={tv.id} tv={tv} />)}
             </div>
         </div>

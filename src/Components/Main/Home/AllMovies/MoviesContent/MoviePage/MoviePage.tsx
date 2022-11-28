@@ -12,13 +12,13 @@ import "./MoviePage.css";
 function MoviePage(): JSX.Element {
     const [movie, setMovie] = useState<PopularMoviesInterface>();
     const [cast,setCast] = useState<CastInterface[]>([]);
-    const [reviews,setReviews] = useState<ReviewsInterface[]>()
+    // const [reviews,setReviews] = useState<ReviewsInterface[]>()
     const movieParams = useParams();
     useEffect(() => {
         apiService.getMovieById(movieParams.movieId).then(res => setMovie(res));
         apiService.CastMovie(movieParams.movieId).then(res=> setCast(res));
-        apiService.getMovieReviews(movieParams.movieId).then(res=> setReviews(res))
-        console.log(reviews)
+        // apiService.getMovieReviews(movieParams.movieId).then(res=> setReviews(res))
+        // console.log(reviews)
     }, [])
     return (
         <div className="MoviePage">
@@ -28,7 +28,7 @@ function MoviePage(): JSX.Element {
                     <h3>"{movie?.title}"</h3>
                     <h4>{`"${movie?.tagline}"`}</h4>
                     <p>{movie?.overview}</p>
-                    <p>Genres: {movie?.genres.map((genre)=> <span>{genre.name}, </span>)}</p>
+                    <p>Genres: {movie?.genres.map((genre)=> <span key={genre.id}>{genre.name}, </span>)}</p>
                 </div>
             </div>
             <div className="MoviePageRateDiv">
