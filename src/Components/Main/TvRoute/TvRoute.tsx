@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { scrollTo } from "../../../functions/scrollTo";
 import { tvRouteFunction } from "../../../functions/tvRouteFunctions";
 import { GenreInterface } from "../../../model/genreInterface";
 import { PopularTvShowInterface } from "../../../model/PopularTvShowInterface";
@@ -32,6 +33,9 @@ function TvRoute(): JSX.Element {
                     <h4>Filters: </h4>
                     <input onChange={(e) => tvRouteFunction.searchTvShows(e.target.value, setTvShows)} type="text" placeholder="Search Movie" />
                     <button onClick={() => tvRouteFunction.filterByVoteAverage(setTvShows)}>Vote Average</button>
+                </div>
+                <div className="ScrollToBtn">
+                    <button onClick={() => scrollTo.scrollTo()}>Top</button>
                 </div>
             </div>
             <div className="displayTvShowsBy">

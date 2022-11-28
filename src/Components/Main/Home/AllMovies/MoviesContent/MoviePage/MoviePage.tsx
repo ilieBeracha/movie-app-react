@@ -25,7 +25,7 @@ function MoviePage(): JSX.Element {
             <div className="MoviePageMainDiv">
                 <img src={config.images_url + movie?.poster_path} alt="" />
                 <div className="MoviePageNameOverview">
-                    <h3>{movie?.title}</h3>
+                    <h3>"{movie?.title}"</h3>
                     <h4>{`"${movie?.tagline}"`}</h4>
                     <p>{movie?.overview}</p>
                     <p>Genres: {movie?.genres.map((genre)=> <span>{genre.name}, </span>)}</p>

@@ -1,7 +1,7 @@
 .MoviesContent {
     padding-top: 20px;
     /* background-color: var(--color1); */
-	width: 100%;
+    width: 100%;
     min-height: 100%;
     /* background-color: aquamarine; */
     /* display: flex;
@@ -12,7 +12,7 @@
     padding-bottom: 40px;
 }
 
-.MoviesContentDiv{
+.MoviesContentDiv {
     display: flex;
     /* flex-wrap: wrap; */
     /* justify-content: space-around; */
@@ -22,7 +22,7 @@
     padding-bottom: 20px;
 }
 
-.MoviesContentUpcomingDiv{
+.MoviesContentUpcomingDiv {
     display: flex;
     /* flex-wrap: wrap; */
     /* justify-content: space-around; */
@@ -32,7 +32,7 @@
     padding-bottom: 20px;
 }
 
-.MovieContentWhatsPopular{
+.MovieContentWhatsPopular {
     height: 80px;
     display: flex;
     align-items: center;
@@ -41,24 +41,24 @@
     /* background-color:var(--color5) ; */
 }
 
-.MovieContentWhatsPopularBtns{
+.MovieContentWhatsPopularBtns {
     padding-left: 10px;
 }
 
-.MovieContentWhatsPopularBtns button{
+.MovieContentWhatsPopularBtns button {
     padding: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.MovieContentWhatsPopularBtns button:hover{
+.MovieContentWhatsPopularBtns button:hover {
     background-color: var(--color8);
     border-radius: 10px;
     color: var(--color1);
 }
 
-.MoviesContentUpcoming{
+.MoviesContentUpcoming {
     height: 80px;
     display: flex;
     align-items: center;
@@ -67,60 +67,54 @@
     /* background-color:var(--color5) ; */
 }
 
-.MovieContentUpcomingBtns{
+.MovieContentUpcomingBtns {
     padding-left: 10px;
 }
 
-.MovieContentUpcomingBtns button{
+.MovieContentUpcomingBtns button {
     padding: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.MovieContentUpcomingBtns button:hover{
+.MovieContentUpcomingBtns button:hover {
     background-color: var(--color8);
     border-radius: 10px;
     color: var(--color1);
 }
 
 
-.MoviesContentDiv::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+.MoviesContentDiv::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
 }
 
-.MoviesContentDiv::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #F5F5F5;
+.MoviesContentDiv::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
 }
 
-.MoviesContentDiv::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: var(--color5);
+.MoviesContentDiv::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: var(--color5);
 }
 
-.MoviesContentUpcomingDiv::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+.MoviesContentUpcomingDiv::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
 }
 
-.MoviesContentUpcomingDiv::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #F5F5F5;
+.MoviesContentUpcomingDiv::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
 }
 
-.MoviesContentUpcomingDiv::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: var(--color5);
+.MoviesContentUpcomingDiv::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: var(--color5);
 }

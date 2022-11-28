@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
+import { scrollTo } from "../../functions/scrollTo";
 import "./Header.css";
 
 function Header(): JSX.Element {
+
     return (
         <div className="Header">
             <NavLink to={'/'}>
-                <div className="Header_Headings">
+                <div onClick={() => scrollTo.scrollTo()} className="Header_Headings">
                     <h1>Need's</h1>
                 </div>
             </NavLink>

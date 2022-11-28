@@ -22,7 +22,7 @@ function TvPage(): JSX.Element {
             <div className="tvPageMainDiv">
                 <img src={config.images_url + tv?.poster_path} alt="" />
                 <div className="TvPageNameOverview">
-                    <h3>{tv?.name}</h3>
+                    <h3>"{tv?.name}"</h3>
                     <h4>{`"${tv?.tagline}"`}</h4>
                     <p>{tv?.overview}</p>
                     <p>Seasons: {tv?.number_of_seasons}</p>

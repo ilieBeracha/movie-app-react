@@ -15,7 +15,7 @@
     height: max-content;
     max-width: 150px;
     padding: 10px;
-    background-color: var(--color2);
+    /* background-color: var(--color2); */
     position: sticky;
     top: 100px;
 }
@@ -31,12 +31,35 @@
 .FilterDiv{
     width: 100%;
     min-height: 100px;
-    background-color: var(--color2);
+    /* background-color: var(--color2); */
     /* margin-top: 10px; */
+    border-bottom: 1px solid var(--color8);
+    margin-bottom: 8px;
 }
 .FilterDiv input{
     width: 90%;
     margin-bottom: 5px;
+    /* background-color: transparent; */
+    border: 1px solid var(--color8);
+    margin-bottom: 5px;
+}
+
+.FilterDiv button{
+    background-color: var(--color2);
+    border: none
+}
+
+.ScrollToBtn button{
+    height: 50px;
+    width: 50px;
+    border: 1px solid var(--color8);
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.ScrollToBtn button:hover{
+    background-color: var(--color8);
+    color: var(--color2);
 }
 /* 
 .dot3 {

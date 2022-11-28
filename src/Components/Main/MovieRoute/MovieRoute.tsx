@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { movieRouteFunction } from "../../../functions/movieRouteFunction";
+import { scrollTo } from "../../../functions/scrollTo";
 import { GenreInterface } from "../../../model/genreInterface";
 import { PopularMoviesInterface } from "../../../model/PopularMoviesInterface";
 import { apiService } from "../../../Service/ApiService";
@@ -29,7 +30,9 @@ function MovieRoute(): JSX.Element {
                     <input onChange={(e) => movieRouteFunction.searchMovie(e.target.value, setMovies)} type="text" placeholder="Search Movie" />
                     <button onClick={() => movieRouteFunction.filterByVoteAverage(setMovies)}>Vote Average</button>
                 </div>
-
+                <div className="ScrollToBtn">
+                    <button onClick={() => scrollTo.scrollTo()}>Top</button>
+                </div>
             </div>
             <div className="displayMoviesBy">
                 {!movies ? 'Loading...'
