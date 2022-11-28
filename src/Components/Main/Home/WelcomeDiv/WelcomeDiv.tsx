@@ -3,12 +3,27 @@ import { config } from "../../../../config/config";
 import { PopularMoviesInterface } from "../../../../model/PopularMoviesInterface";
 import { apiService } from "../../../../Service/ApiService";
 import "./WelcomeDiv.css";
+import { ToastContainer, toast } from 'react-toastify';
+import { Toast } from "react-toastify/dist/components";
+
 
 function WelcomeDiv(): JSX.Element {
 
     // function searchMoviesOrTvShows(query:string){
         
     // }
+
+    function toastMess(){
+        toast.info('Coming soon...',{
+            position: toast.POSITION.TOP_CENTER,
+            className: 'discoverToast',
+            theme: "colored",
+            // hideProgressBar:true,
+            closeOnClick:true,
+            draggable:true,
+            pauseOnHover:false,
+        })
+    }
 
     return (
         <div className="WelcomeDiv">
@@ -20,7 +35,7 @@ function WelcomeDiv(): JSX.Element {
                 </div>
                 <div className="WelcomeDivAnchor">
                     {/* <input onChange={(e)=>searchMoviesOrTvShows(e.target.value)} type="text" placeholder="Search" /> */}
-                    <button>Dicover</button>
+                    <button onClick={toastMess}>Dicover</button>
                 </div>
             </div>
             <div className="WelcomeDivImage">

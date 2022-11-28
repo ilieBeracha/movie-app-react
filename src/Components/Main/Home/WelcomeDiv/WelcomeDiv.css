@@ -105,6 +105,9 @@
     border: 2px solid var(--color5);
     background-color: transparent;
 }
+.discoverToast{
+    background-color: var(--color8);
+}
 
 
 @media screen and (max-width: 500px) {
