@@ -1,5 +1,5 @@
 .TvRoute {
-	width: 80%;
+	width: 90%;
     min-height: 80%;
     /* background-color: aqua; */
     margin: 0 auto;
@@ -7,7 +7,7 @@
     padding-top: 60px;
 }
 
-.TvShowsByGenre{
+.displayTvShowsBy{
     padding-left: 10px;
     gap: 30px;
     display: flex;

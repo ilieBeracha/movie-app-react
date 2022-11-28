@@ -31,7 +31,7 @@ function MovieRoute(): JSX.Element {
                 </div>
 
             </div>
-            <div className="MoviesByGenre">
+            <div className="displayMoviesBy">
                 {!movies ? 'Loading...'
                     : movies?.map((movie) => <SingleMovie key={movie.id} movie={movie} />)}
             </div>

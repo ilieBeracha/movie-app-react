@@ -1,37 +1,53 @@
 import axios from "axios";
 import { config } from "../config/config";
 import { MainCast } from "../model/castInterface";
-import { MoviesResponse, PopularMoviesInterface } from "../model/PopularMoviesInterface";
+import { MoviesResponse } from "../model/PopularMoviesInterface";
 import { MainReviews } from "../model/ReviewsInterface";
 import { MainUpcomingInterface } from "../model/upcomingMoviesInterface";
 
 class ApiService {
     async getPopularMovies() {
         let movies: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
-        // console.log(movies.results)
         return movies.results;
     }
     async getAllPopularMovies() {
-        let filteredArr:any =[] 
+        let filteredArr: any[] = []
         for (let i = 1; i < 100; i++) {
-            let movies: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.API_KEY}&language=en-US&page=${i}`)).data;           
+            let movies: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.API_KEY}&language=en-US&page=${i}`)).data;
             filteredArr.push(...movies.results)
         }
-        return filteredArr;
+        let duplicateArr: any[] = [];
+        let uniqueObject: any = {};
+        for (let i in filteredArr) {
+            let objTitle = filteredArr[i]['title'];
+            uniqueObject[objTitle] = filteredArr[i];
+        }
+        for (let i in uniqueObject) {
+            duplicateArr.push(uniqueObject[i]);
+        }
+        return duplicateArr;
     }
 
     async getPopularTvShows() {
         let tv: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
-        // console.log(tv.results)
         return tv.results;
     }
     async getAllPopularTvShows() {
-        let filteredArr:any =[] 
+        let filteredArr: any[] = []
         for (let i = 1; i < 100; i++) {
-            let tv: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${config.API_KEY}&language=en-US&page=${i}`)).data;            
+            let tv: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${config.API_KEY}&language=en-US&page=${i}`)).data;
             filteredArr.push(...tv.results)
         }
-        return filteredArr;
+        let duplicateArr: any[] = [];
+        let uniqueObject: any = {};
+        for (let i in filteredArr) {
+            let objTitle = filteredArr[i]['name'];
+            uniqueObject[objTitle] = filteredArr[i];
+        }
+        for (let i in uniqueObject) {
+            duplicateArr.push(uniqueObject[i]);
+        }
+        return duplicateArr;
     }
 
     async getMovieGenres() {
@@ -45,7 +61,6 @@ class ApiService {
 
     async getMovieById(movieId: any) {
         let movie = await (await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${config.API_KEY}&language=en-US`)).data;
-        console.log(movie)
         return movie;
     }
 
@@ -56,13 +71,11 @@ class ApiService {
 
     async CastMovie(id: any) {
         let cast: MainCast = await (await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${config.API_KEY}&language=en-US`)).data;
-        console.log(cast.cast)
         return cast.cast;
     }
 
     async CastTv(id: any) {
         let cast: MainCast = await (await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=${config.API_KEY}&language=en-US`)).data;
-        console.log(cast.cast)
         return cast.cast;
     }
 

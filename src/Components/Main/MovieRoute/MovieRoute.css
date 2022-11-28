@@ -1,5 +1,5 @@
 .MovieRoute {
-	width: 80%;
+	width: 90%;
     /* background-color: aqua; */
     margin: 0 auto;
     display: flex;
@@ -19,14 +19,14 @@
     position: sticky;
     top: 100px;
 }
-.MoviesByGenre{
+.displayMoviesBy{
     padding-left: 10px;
     gap: 30px;
     display: flex;
     /* align-items: center; */
     /* overflow: hidden; */
     flex-wrap: wrap;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 }
 .FilterDiv{
     width: 100%;

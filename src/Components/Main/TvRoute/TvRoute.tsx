@@ -34,7 +34,7 @@ function TvRoute(): JSX.Element {
                     <button onClick={() => tvRouteFunction.filterByVoteAverage(setTvShows)}>Vote Average</button>
                 </div>
             </div>
-            <div className="TvShowsByGenre">
+            <div className="displayTvShowsBy">
                 {!tvShows ? 'Loading...'
                     : tvShows?.map((tv) => <SingleTv key={tv.id} tv={tv} />)}
             </div>
