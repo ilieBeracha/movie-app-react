@@ -2,7 +2,7 @@ import { PopularTvShowInterface } from "../model/PopularTvShowInterface";
 import { apiService } from "../Service/ApiService";
 
 class TvRouteFunctions{
-    async getTvShowsByGenre(genId: any, setTvShows: any) {
+    async getTvShowsByGenre(genId: number, setTvShows: any) {
         let filteredPopular: PopularTvShowInterface[] = []
         filteredPopular = await apiService.getAllPopularTvShows();
         filteredPopular = filteredPopular.filter(res => res.genre_ids.includes(genId));

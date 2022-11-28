@@ -1,5 +1,6 @@
 .Genre {
 	display: flex;
+    cursor: pointer;
 }
 
 .Genre p{

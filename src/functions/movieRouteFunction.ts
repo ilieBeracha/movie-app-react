@@ -2,7 +2,7 @@ import { PopularMoviesInterface } from "../model/PopularMoviesInterface";
 import { apiService } from "../Service/ApiService";
 
 class MovieRouteFunction {
-    async getMoviesByGenre(genId: any, setMovies: any) {
+    async getMoviesByGenre(genId: number, setMovies: any) {
         let filteredPopular: PopularMoviesInterface[] = []
         filteredPopular = await apiService.getAllPopularMovies();
         filteredPopular = filteredPopular.filter(res => res.genre_ids.includes(genId));
