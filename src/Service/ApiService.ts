@@ -14,17 +14,24 @@ class ApiService {
     async getAllPopularMovies() {
         let filteredArr:any =[] 
         for (let i = 1; i < 100; i++) {
-            let movies: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.API_KEY}&language=en-US&page=${i}`)).data;            
+            let movies: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.API_KEY}&language=en-US&page=${i}`)).data;           
             filteredArr.push(...movies.results)
         }
         return filteredArr;
     }
 
     async getPopularTvShows() {
-        let tv: MoviesResponse = await (await axios.get(`
-        https://api.themoviedb.org/3/tv/popular?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
+        let tv: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
         // console.log(tv.results)
         return tv.results;
+    }
+    async getAllPopularTvShows() {
+        let filteredArr:any =[] 
+        for (let i = 1; i < 100; i++) {
+            let tv: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${config.API_KEY}&language=en-US&page=${i}`)).data;            
+            filteredArr.push(...tv.results)
+        }
+        return filteredArr;
     }
 
     async getMovieGenres() {

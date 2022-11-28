@@ -10,5 +10,7 @@ export interface PopularTvShowInterface{
     vote_count:number,
     number_of_episodes:number,
     number_of_seasons:number,
-    tagline:string
+    tagline:string,
+    genre_ids: number[]
+    original_name:string
 }

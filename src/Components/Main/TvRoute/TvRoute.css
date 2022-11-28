@@ -4,10 +4,15 @@
     /* background-color: aqua; */
     margin: 0 auto;
     display: flex;
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
-/* .GenreDiv{
-    position: sticky;
-    top: 0;
-} */
+.TvShowsByGenre{
+    padding-left: 10px;
+    gap: 30px;
+    display: flex;
+    /* align-items: center; */
+    /* overflow: hidden; */
+    flex-wrap: wrap;
+    /* overflow-y: scroll; */
+}

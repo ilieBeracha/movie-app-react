@@ -13,6 +13,7 @@
 
 .GenreDiv{
     height: max-content;
+    max-width: 150px;
     padding: 10px;
     background-color: var(--color2);
     position: sticky;
@@ -27,7 +28,16 @@
     flex-wrap: wrap;
     overflow-x: scroll;
 }
-
+.FilterDiv{
+    width: 100%;
+    min-height: 100px;
+    background-color: var(--color2);
+    /* margin-top: 10px; */
+}
+.FilterDiv input{
+    width: 90%;
+    margin-bottom: 5px;
+}
 /* 
 .dot3 {
     width: 15px;

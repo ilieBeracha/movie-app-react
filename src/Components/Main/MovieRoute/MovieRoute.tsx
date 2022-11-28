@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { movieRouteFunction } from "../../../functions/movieRouteFunction";
 import { GenreInterface } from "../../../model/genreInterface";
 import { PopularMoviesInterface } from "../../../model/PopularMoviesInterface";
 import { apiService } from "../../../Service/ApiService";
@@ -18,17 +19,17 @@ function MovieRoute(): JSX.Element {
         apiService.getAllPopularMovies().then(res => setMovies(res))
     }, [])
 
-    async function getMoviewsGenre(genId: any) {
-        let filteredPopular: PopularMoviesInterface[] = []
-        filteredPopular = await apiService.getAllPopularMovies();
-        filteredPopular = filteredPopular.filter(res => res.genre_ids.includes(genId));
-        setMovies(filteredPopular)
-        console.log(filteredPopular);
-    }
     return (
         <div className="MovieRoute">
+
             <div className="GenreDiv">
-                {genre?.map((gen) => <Genre onclick={() => getMoviewsGenre(gen.id)} key={gen.id} id={gen.id} name={gen.name} />)}
+                {genre?.map((gen) => <Genre onclick={() => movieRouteFunction.getMoviesByGenre(gen.id, setMovies)} key={gen.id} id={gen.id} name={gen.name} />)}
+                <div className="FilterDiv">
+                    <h4>Filters: </h4>
+                    <input onChange={(e) => movieRouteFunction.searchMovie(e.target.value, setMovies)} type="text" placeholder="Search Movie" />
+                    <button onClick={() => movieRouteFunction.filterByVoteAverage(setMovies)}>Vote Average</button>
+                </div>
+
             </div>
             <div className="MoviesByGenre">
                 {!movies ? 'Loading...'
