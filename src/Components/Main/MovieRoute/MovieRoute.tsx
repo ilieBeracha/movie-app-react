@@ -28,7 +28,7 @@ function MovieRoute(): JSX.Element {
                 <div className="FilterDiv">
                     <h4>Filters: </h4>
                     <input onChange={(e) => movieRouteFunction.searchMovie(e.target.value, setMovies)} type="text" placeholder="Search Movie" />
-                    <button onClick={() => movieRouteFunction.filterByVoteAverage(setMovies)}>Vote Average</button>
+                    {/* <button onClick={() => movieRouteFunction.filterByVoteAverage(setMovies)}>Vote Average</button> */}
                 </div>
                 <div className="ScrollToBtn">
                     <button onClick={() => scrollTo.scrollTo()}>Top</button>

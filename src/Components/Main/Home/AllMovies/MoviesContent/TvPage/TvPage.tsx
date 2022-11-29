@@ -4,7 +4,7 @@ import { config } from "../../../../../../config/config";
 import { CastInterface } from "../../../../../../model/castInterface";
 import { PopularTvShowInterface } from "../../../../../../model/PopularTvShowInterface";
 import { apiService } from "../../../../../../Service/ApiService";
-import Cast from "../../../../../cast/cast";
+import Cast from "../../../../cast/cast";
 import "./TvPage.css";
 
 function TvPage(): JSX.Element {

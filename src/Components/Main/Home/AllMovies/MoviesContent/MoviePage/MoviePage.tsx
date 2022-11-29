@@ -5,7 +5,7 @@ import { CastInterface } from "../../../../../../model/castInterface";
 import { PopularMoviesInterface } from "../../../../../../model/PopularMoviesInterface";
 import { ReviewsInterface } from "../../../../../../model/ReviewsInterface";
 import { apiService } from "../../../../../../Service/ApiService";
-import Cast from "../../../../../cast/cast";
+import Cast from "../../../../cast/cast";
 import Review from "../Review/Review";
 import "./MoviePage.css";
 

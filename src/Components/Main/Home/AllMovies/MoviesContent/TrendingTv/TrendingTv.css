@@ -1,43 +1,43 @@
-.SingleMovie {
+.TrendingTv {
     position: relative;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
     width: 140px;
-    height: 250px;
+    min-height: 250px;
     /* background-color: var(--color8); */
     border-radius: 10px;
-    /* box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.11);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.11);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.11);
-    text-align: center; */
     text-align: center;
 }
 
-.SingleMovie img {
+.TrendingTv img {
     width: 140px;
     height: 200px;
+    /* border-top-left-radius: 20px; */
+    /* border-top-right-radius: 20px; */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-.SingleMovie:hover {
+
+.TrendingTv:hover {
     background-color: var(--color2);
 }
 
 
-.SingleMovie h6 {
+.TrendingTv h6 {
     margin: 0;
 }
 
-.SingleMovie p {
+.TrendingTv p {
     margin: 0;
     font-size: 13px;
 }
 
-.SingleMovie input{
+.TrendingTv input{
     position: absolute;
     top: 2px;
     right: 2px;
+    z-index: 3;
 }

@@ -51,6 +51,15 @@ class ApiService {
         return duplicateArr;
     }
 
+    async getTrendingMovie(){
+        let trending:MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${config.API_KEY}`)).data;
+        return trending.results;
+    }
+    async getTrendingTv(){
+        let trending:MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/trending/tv/day?api_key=${config.API_KEY}`)).data;
+        return trending.results;
+    }
+
     async getMovieGenres() {
         let genre = await (await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${config.API_KEY}&language=en-US`)).data;
         return genre.genres;

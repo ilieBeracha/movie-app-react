@@ -1,0 +1,32 @@
+.FavoriteSingle {
+    border-bottom: 2px solid black;
+	width: 60%;
+    margin: 0 auto;
+
+}
+
+.FavoriteSingleOverview{
+    text-align: center;
+}
+
+.FavoriteSingleContainer{
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.FavoriteSingle img{
+    width: 100px;
+}
+
+.FavoriteSingleImg{
+    /* width: 80px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FavoriteSingleTitle{
+    width: 300px;
+}

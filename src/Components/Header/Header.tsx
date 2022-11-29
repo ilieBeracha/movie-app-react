@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { scrollTo } from "../../functions/scrollTo";
 import "./Header.css";
 
 function Header(): JSX.Element {
+    const favoriteSelector = useSelector((state: any) => state.favorite.values);
+
 
     return (
         <div className="Header">
@@ -16,6 +19,9 @@ function Header(): JSX.Element {
                 <NavLink to={'/'}>Home</NavLink>
                 <NavLink to={'/movies'}>Movies</NavLink>
                 <NavLink to={'/tv'}>Tv Shows</NavLink>
+                {favoriteSelector.length!==0?
+                    <NavLink to={'/fav'}>Favorite</NavLink>
+                :<></>}
             </div>
 
             <div className="Header_Log">

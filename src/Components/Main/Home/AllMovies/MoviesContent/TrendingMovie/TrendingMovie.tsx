@@ -1,11 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { add, remove } from "../../../../../../app/FavoriteSlice";
 import { config } from "../../../../../../config/config";
 import { PopularMoviesInterface } from "../../../../../../model/PopularMoviesInterface";
-import "./SingleMovie.css";
+import { UpcomingMoviesInterface } from "../../../../../../model/upcomingMoviesInterface";
+import "./TrendingMovie.css";
 
-function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element {
+function TrendingMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element {
     const favoriteSelector = useSelector((state:any)=> state.favorite.values);
     const dispatch = useDispatch()
 
@@ -16,10 +17,10 @@ function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element 
             dispatch(remove(movie))
         }
     }
-    // console.log(favoriteSelector)
     return (
-        <div className="SingleMovie">
+        <div className="TrendingMovie">
             <input onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
+
             <NavLink to={'/movies/singlemovie/' + movie.id}>
                 <img src={config.images_url + movie.poster_path} alt="" />
             </NavLink>
@@ -29,4 +30,4 @@ function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element 
     );
 }
 
-export default SingleMovie;
+export default TrendingMovie;

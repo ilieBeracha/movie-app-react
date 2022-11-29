@@ -1,5 +1,5 @@
-import { config } from "../../config/config";
-import { CastInterface } from "../../model/castInterface";
+import { config } from "../../../config/config";
+import { CastInterface } from "../../../model/castInterface";
 import "./cast.css";
 
 function Cast({cast}:{cast:CastInterface}): JSX.Element {

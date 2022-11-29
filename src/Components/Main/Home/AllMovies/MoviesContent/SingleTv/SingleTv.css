@@ -1,32 +1,39 @@
 .SingleTv {
+    position: relative;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-	width: 200px;
-    height: 350px;
+	width: 140px;
+    height: 250px;
     /* background-color: var(--color8); */
     border-radius: 10px;
     text-align: center;
 }
 
-.SingleTv img{
-    width: 200px;
-    height: 300px;
+.SingleTv img {
+    width: 140px;
+    height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 .SingleTv:hover{
-    background-color: var(--color8);
+    background-color: var(--color2);
 }
 
 
-.SingleTv h5{
+.SingleTv h6{
     margin: 0;
 }
 
 .SingleTv p{
     margin: 0;
     font-size: 13px;
+}
+
+.SingleTv input{
+    position: absolute;
+    top: 2px;
+    right: 2px;
 }

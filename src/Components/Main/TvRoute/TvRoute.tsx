@@ -20,11 +20,6 @@ function TvRoute(): JSX.Element {
         apiService.getAllPopularTvShows().then(res => setTvShows(res))
     }, [])
 
-    // async function getTvShowsByGenre(genId: any) {
-    //     let filteredArr: PopularTvShowInterface[] = await apiService.getAllPopularTvShows();
-    //     filteredArr = filteredArr.filter((res) => res.genre_ids.includes(genId));
-    //     setTvShows(filteredArr)
-    // }
     return (
         <div className="TvRoute">
             <div className="GenreDiv">
@@ -32,7 +27,7 @@ function TvRoute(): JSX.Element {
                 <div className="FilterDiv">
                     <h4>Filters: </h4>
                     <input onChange={(e) => tvRouteFunction.searchTvShows(e.target.value, setTvShows)} type="text" placeholder="Search Movie" />
-                    <button onClick={() => tvRouteFunction.filterByVoteAverage(setTvShows)}>Vote Average</button>
+                    {/* <button onClick={() => tvRouteFunction.filterByVoteAverage(setTvShows)}>Vote Average</button> */}
                 </div>
                 <div className="ScrollToBtn">
                     <button onClick={() => scrollTo.scrollTo()}>Top</button>

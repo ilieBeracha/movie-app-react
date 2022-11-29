@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import { PopularMoviesInterface } from "../../../../../model/PopularMoviesInterface";
-import { PopularTvShowInterface } from "../../../../../model/PopularTvShowInterface";
-import { UpcomingMoviesInterface } from "../../../../../model/upcomingMoviesInterface";
 import { apiService } from "../../../../../Service/ApiService";
 import "./MoviesContent.css";
 import SingleMovie from "./SingleMovie/SingleMovie";
 import SingleTv from "./SingleTv/SingleTv";
-import UpcomingMovie from "./UpcomingMovie/UpcomingMovie";
+import TrendingMovie from "./TrendingMovie/TrendingMovie";
+import TrendingTv from "./TrendingTv/TrendingTv";
 
 function MoviesContent(): JSX.Element {
+   
     const [movies, setMovies] = useState<any[]>();
     const [movieOrTv, setMovieOrTv] = useState<boolean>(true);
-    const [upcomings, setUpcomings] = useState<UpcomingMoviesInterface[]>([])
+    const [trendingMovieOrTv, setTrendingMovieOrTv] = useState<boolean>(true);
+    const [Trending, setTrending] = useState<any[]>([])
 
     useEffect(() => {
         apiService.getPopularMovies().then(res => setMovies(res))
-        apiService.upcomingMovies().then(res=> setUpcomings(res))
+        apiService.getTrendingMovie().then(res=> setTrending(res))
     }, [])
 
     function TvClicked() {
@@ -25,6 +25,15 @@ function MoviesContent(): JSX.Element {
     function MoviesClicked() {
         setMovieOrTv(!movieOrTv)
         apiService.getPopularMovies().then(res => setMovies(res))
+    }
+
+    function getTrendingTvFunc(){
+        setTrendingMovieOrTv(!trendingMovieOrTv);
+        apiService.getTrendingTv().then(res=> setTrending(res))
+    }
+    function getTrendingMovieFunc(){
+        setTrendingMovieOrTv(!trendingMovieOrTv);
+        apiService.getTrendingMovie().then(res=> setTrending(res))
     }
     return (
         <div className="MoviesContent">
@@ -43,16 +52,16 @@ function MoviesContent(): JSX.Element {
                     : movies?.map((tv) => <SingleTv key={tv.id} tv={tv} />)}
             </div>
             <div className="MoviesContentUpcoming">
-                <h3>Upcomings: </h3>
+                <h3>Trending: </h3>
                 <div className="MovieContentUpcomingBtns">
-                    <button>Movies</button>
-                    <button>On Tv</button>
-                    {/* <button>For Rent</button>
-                    <button>In Theaters</button> */}
+                    <button onClick={getTrendingMovieFunc} disabled={trendingMovieOrTv}>Movies</button>
+                    <button onClick={getTrendingTvFunc} disabled={!trendingMovieOrTv}>On Tv</button>
                 </div>
             </div>
             <div className="MoviesContentUpcomingDiv">
-                    {upcomings.map((res)=> <UpcomingMovie key={res.id} movie={res}/> )}
+                    {trendingMovieOrTv?
+                    Trending.map((res)=> <TrendingMovie key={res.id} movie={res}/> )
+                :Trending.map((tv)=> <TrendingTv tv={tv}/>)}
             </div>
         </div>
     );
