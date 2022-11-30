@@ -4,6 +4,7 @@ import { MainCast } from "../model/castInterface";
 import { MoviesResponse } from "../model/PopularMoviesInterface";
 import { MainReviews } from "../model/ReviewsInterface";
 import { MainUpcomingInterface } from "../model/upcomingMoviesInterface";
+import { MainVideoInteface, VideoInterface } from "../model/videoInterface";
 
 class ApiService {
     async getPopularMovies() {
@@ -90,11 +91,6 @@ class ApiService {
         return cast.cast;
     }
 
-    async upcomingMovies() {
-        let movie: MainUpcomingInterface = await (await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
-        return movie.results;
-    }
-
     async getMovieReviews(movieId: any) {
         let movie: MainReviews = await (await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
         return movie.results;
@@ -103,6 +99,22 @@ class ApiService {
     async getTvReviews(tvId: any) {
         let tv: MainReviews = await (await axios.get(`https://api.themoviedb.org/3/tv/${tvId}/reviews?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
         return tv.results;
+    }
+    async getVideoMovie(id: any) {
+        let filteredArr:VideoInterface[];
+        let video: MainVideoInteface = await (await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${config.API_KEY}&language=en-US`)).data;
+        filteredArr = video.results.filter(vid=> vid.name.includes('Official'))
+        // let video: MainVideoInteface = await (await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${config.API_KEY}&append_to_response=videos`)).data;
+        // console.log(filteredArr)
+        return filteredArr;
+    }
+    async getVideoTv(id: any) {
+        let filteredArr:VideoInterface[];
+        let video: MainVideoInteface = await (await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${config.API_KEY}&language=en-US`)).data;
+        filteredArr = video.results.filter(vid=> vid.name.includes('Official'))
+        // let video: MainVideoInteface = await (await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${config.API_KEY}&append_to_response=videos`)).data;
+        console.log(video.results)
+        return video.results;
     }
 }
 

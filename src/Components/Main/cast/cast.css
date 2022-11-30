@@ -6,3 +6,12 @@
     width: 150px;
     height: 250px;
 }
+
+.noImagePlaceholderCast{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color2);
+    height: 250px;
+    width: 150px;
+}
