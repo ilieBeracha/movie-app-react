@@ -1,6 +1,6 @@
 .Header {
     width: 100%;
-    height: 10%;
+    height: 8%;
     background-color: var(--color5);
     display: flex;
     justify-content: space-between;
@@ -11,6 +11,7 @@
 }
 
 .Header .Header_NavBar {
+    width: 100px;
     width: 350px;
     display: flex;
     justify-content: space-around;
@@ -39,4 +40,15 @@
     color: var(--color1);
     background-color: var(--color8);
     border-radius: 10px;
+}
+
+.Header_NavBar_div a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.AvatarLogo:hover{
+    cursor: pointer;
 }
