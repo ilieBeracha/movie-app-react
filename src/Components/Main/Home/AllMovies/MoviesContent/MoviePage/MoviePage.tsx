@@ -43,6 +43,7 @@ function MoviePage(): JSX.Element {
             <div className="TrailerDiv">
                 <YouTube
                 videoId={video?.key}
+                // style={{borderRadius:'20px'}}
                 />
             </div>
             <div className="castHeadings">

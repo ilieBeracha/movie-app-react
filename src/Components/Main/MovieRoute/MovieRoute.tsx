@@ -22,7 +22,6 @@ function MovieRoute(): JSX.Element {
 
     return (
         <div className="MovieRoute">
-
             <div className="GenreDiv">
                 {genre?.map((gen) => <Genre onclick={() => movieRouteFunction.getMoviesByGenre(gen.id, setMovies)} key={gen.id} id={gen.id} name={gen.name} />)}
                 <div className="FilterDiv">

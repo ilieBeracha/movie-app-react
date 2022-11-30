@@ -13,9 +13,34 @@
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.11);
     text-align: center; */
     text-align: center;
-    box-shadow:  10px 10px 10px #bebebe,
-             0px 0px 0px #ffffff;
+    box-shadow: 10px 10px 10px #bebebe,
+        0px 0px 0px #ffffff;
+
+    -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
 }
+
+@-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
 
 .SingleMovie img {
     width: 140px;
@@ -38,7 +63,7 @@
     font-size: 13px;
 }
 
-.SingleMovie input{
+.SingleMovie input {
     position: absolute;
     top: 2px;
     right: 2px;

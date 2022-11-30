@@ -114,7 +114,7 @@ class ApiService {
         filteredArr = video.results.filter(vid=> vid.name.includes('Official'))
         // let video: MainVideoInteface = await (await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${config.API_KEY}&append_to_response=videos`)).data;
         console.log(video.results)
-        return video.results;
+        return filteredArr;
     }
 }
 

@@ -23,6 +23,7 @@ function FavoriteSingle({ movie, tv }: { movie: PopularMoviesInterface, tv: Popu
                 <div className="FavoriteSingleOverview">
                     <p>{movie.overview || tv.overview}</p>
                 </div>
+                
             :<></>}
         </div>
     );
