@@ -3,8 +3,6 @@ import { apiService } from "../../../../../Service/ApiService";
 import "./MoviesContent.css";
 import SingleMovie from "./SingleMovie/SingleMovie";
 import SingleTv from "./SingleTv/SingleTv";
-import TrendingMovie from "./TrendingMovie/TrendingMovie";
-import TrendingTv from "./TrendingTv/TrendingTv";
 
 function MoviesContent(): JSX.Element {
    
@@ -42,8 +40,6 @@ function MoviesContent(): JSX.Element {
                 <div className="MovieContentWhatsPopularBtns">
                     <button disabled={movieOrTv} onClick={() => MoviesClicked()}>Movies</button>
                     <button disabled={!movieOrTv} onClick={() => TvClicked()}>On Tv</button>
-                    {/* <button>For Rent</button>
-                    <button>In Theaters</button> */}
                 </div>
             </div>
             <div className="MoviesContentDiv">
@@ -58,10 +54,10 @@ function MoviesContent(): JSX.Element {
                     <button onClick={getTrendingTvFunc} disabled={!trendingMovieOrTv}>On Tv</button>
                 </div>
             </div>
-            <div className="MoviesContentUpcomingDiv">
+            <div className="MoviesContentTrendingDiv">
                     {trendingMovieOrTv?
-                    Trending.map((res)=> <TrendingMovie key={res.id} movie={res}/> )
-                :Trending.map((tv)=> <TrendingTv tv={tv}/>)}
+                    Trending.map((res)=> <SingleMovie key={res.id} movie={res}/> )
+                :Trending.map((tv)=> <SingleTv tv={tv}/>)}
             </div>
         </div>
     );

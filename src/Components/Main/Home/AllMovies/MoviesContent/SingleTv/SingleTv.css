@@ -4,11 +4,13 @@
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-	width: 140px;
+    width: 140px;
     height: 250px;
     /* background-color: var(--color8); */
     border-radius: 10px;
     text-align: center;
+    box-shadow:  10px 10px 10px #bebebe,
+    0px 0px 0px #ffffff;
 }
 
 .SingleTv img {
@@ -18,21 +20,21 @@
     border-top-right-radius: 10px;
 }
 
-.SingleTv:hover{
+.SingleTv:hover {
     background-color: var(--color2);
 }
 
 
-.SingleTv h6{
+.SingleTv h6 {
     margin: 0;
 }
 
-.SingleTv p{
+.SingleTv p {
     margin: 0;
     font-size: 13px;
 }
 
-.SingleTv input{
+.SingleTv input {
     position: absolute;
     top: 2px;
     right: 2px;
