@@ -1,9 +1,9 @@
 .AllMovies {
 	width: 80%;
     margin: 0 auto;
-    min-height: 800px;
-    /* display: flex;
-    justify-content: center;
+    min-height: 900px;
+     /* display: flex;
+    justify-content: space-around;
     align-items: center; */
     /* background-color: var(--color1); */
 }
