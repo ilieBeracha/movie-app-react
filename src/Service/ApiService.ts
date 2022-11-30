@@ -53,6 +53,7 @@ class ApiService {
 
     async getTrendingMovie(){
         let trending:MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${config.API_KEY}`)).data;
+        console.log(trending.results)
         return trending.results;
     }
     async getTrendingTv(){
