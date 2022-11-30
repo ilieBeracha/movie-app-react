@@ -38,7 +38,7 @@ function WelcomeDiv(): JSX.Element {
                     {/* <input onChange={(e)=>searchMoviesOrTvShows(e.target.value)} type="text" placeholder="Search" /> */}
                     <button onClick={()=>{
                          window.scrollTo({
-                            top: 490,
+                            top: 900,
                             behavior: 'smooth'
                         });
                     }}>Dicover</button>
