@@ -1,5 +1,5 @@
 .Main {
 	width: 100%;
     min-height: 80%;
-    background-color: transparent;
+    background-color: var(--color1);
 }

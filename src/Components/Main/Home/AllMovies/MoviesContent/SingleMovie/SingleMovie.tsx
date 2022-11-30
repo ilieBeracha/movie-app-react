@@ -16,12 +16,12 @@ function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element 
             dispatch(remove(movie))
         }
     }
-
+    console.log(movie)
     
     // console.log(favoriteSelector)
     return (
         <div className="SingleMovie">
-            <input onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
+            <input checked={favoriteSelector.map((mov:any)=> mov.id ).includes(movie.id)} onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
             <NavLink to={'/movies/singlemovie/' + movie.id}>
                 <img src={config.images_url + movie.poster_path} alt="" />
             </NavLink>

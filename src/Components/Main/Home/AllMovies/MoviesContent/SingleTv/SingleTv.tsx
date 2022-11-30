@@ -7,6 +7,7 @@ import "./SingleTv.css";
 
 function SingleTv({ tv }: { tv: PopularTvShowInterface }): JSX.Element {
     const dispatch = useDispatch()
+    const favoriteSelector = useSelector((state:any)=> state.favorite.values);
 
     function dispatchFav(input:HTMLInputElement){
         if(input.checked){
@@ -18,7 +19,7 @@ function SingleTv({ tv }: { tv: PopularTvShowInterface }): JSX.Element {
     }
     return (
         <div className="SingleTv">
-            <input onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
+            <input  checked={favoriteSelector.map((mov:any)=> mov.id ).includes(tv.id)} onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
             <NavLink to={'/tv/singletv/' + tv.id}>
                 <img src={config.images_url + tv.poster_path} alt="" />
             </NavLink>
