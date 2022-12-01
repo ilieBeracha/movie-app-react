@@ -37,7 +37,7 @@ function MoviesContent(): JSX.Element {
         <div className="MoviesContent">
 
             <div className="MovieContentWhatsPopular">
-                <h3>Whats Popular: </h3>
+                <h3>What's Popular: </h3>
                 <div className="MovieContentWhatsPopularBtns">
                     <button disabled={movieOrTv} onClick={() => MoviesClicked()}>Movies</button>
                     <button disabled={!movieOrTv} onClick={() => TvClicked()}>On Tv</button>

@@ -9,7 +9,6 @@ import { MainVideoInteface, VideoInterface } from "../model/videoInterface";
 class ApiService {
     async getPopularMovies() {
         let movies: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
-        console.log(movies.results)
         return movies.results;
     }
     async getAllPopularMovies() {

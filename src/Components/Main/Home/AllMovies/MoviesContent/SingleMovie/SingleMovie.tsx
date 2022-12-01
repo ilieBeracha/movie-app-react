@@ -8,7 +8,6 @@ import "./SingleMovie.css";
 function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element {
     const favoriteSelector = useSelector((state:any)=> state.favorite.values);
     const dispatch = useDispatch()
-    console.log(favoriteSelector)
     function dispatchFav(input:HTMLInputElement){
         if(input.checked){
             dispatch(add(movie))
@@ -16,9 +15,7 @@ function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element 
             dispatch(remove(movie))
         }
     }
-    console.log(movie)
     
-    // console.log(favoriteSelector)
     return (
         <div className="SingleMovie">
             <input checked={favoriteSelector.map((mov:any)=> mov.id ).includes(movie.id)} onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
