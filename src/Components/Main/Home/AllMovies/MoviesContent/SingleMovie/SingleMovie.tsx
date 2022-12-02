@@ -8,6 +8,7 @@ import "./SingleMovie.css";
 function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element {
     const favoriteSelector = useSelector((state: any) => state.favorite.values);
     const dispatch = useDispatch()
+    
     function dispatchFav(input: HTMLInputElement) {
         if (input.checked) {
             dispatch(add(movie))
