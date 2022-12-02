@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { UserInterface } from "../../model/UserInterface";
-import { onLogin } from "../../app/UsersSlice";
+import { users } from "../../Service/UserDetails";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -32,6 +32,10 @@ const style = {
 function Header(): JSX.Element {
     const { register, handleSubmit } = useForm<UserInterface>()
     const favoriteSelector = useSelector((state: any) => state.favorite.values);
+    // const usersSelector = useSelector((state: any) => state.users);
+    // const dispatch = useDispatch()
+    // console.log(usersSelector);
+    
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -47,15 +51,11 @@ function Header(): JSX.Element {
         })
     }
 
-    function checkIfSignIn(){
-
+    function checkIfSignIn(name:any){
+        
     }
+      
 
-    // function disableIfNotLogged(event:any){
-    //     if(UserNameSelector===false && UserPasswordSelector===false){
-    //         event.preventDefault();
-    //     }
-    // }
 
     return (
         <div className="Header">
