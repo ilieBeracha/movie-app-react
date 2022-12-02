@@ -6,19 +6,23 @@ import { PopularMoviesInterface } from "../../../../../../model/PopularMoviesInt
 import "./SingleMovie.css";
 
 function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element {
-    const favoriteSelector = useSelector((state:any)=> state.favorite.values);
+    const favoriteSelector = useSelector((state: any) => state.favorite.values);
     const dispatch = useDispatch()
-    function dispatchFav(input:HTMLInputElement){
-        if(input.checked){
+    function dispatchFav(input: HTMLInputElement) {
+        if (input.checked) {
             dispatch(add(movie))
-        } else{
+        } else {
             dispatch(remove(movie))
         }
     }
-    
+    //             <input checked={favoriteSelector.map((mov:any)=> mov.id ).includes(movie.id)} onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
+
     return (
         <div className="SingleMovie">
-            <input checked={favoriteSelector.map((mov:any)=> mov.id ).includes(movie.id)} onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
+            <label>
+                <input checked={favoriteSelector.map((mov:any)=> mov.id ).includes(movie.id)} onChange={(e)=> dispatchFav(e.target)}  id="input" type="checkbox"/>
+                    <span className="check"></span>
+            </label>
             <NavLink to={'/movies/singlemovie/' + movie.id}>
                 <img src={config.images_url + movie.poster_path} alt="" />
             </NavLink>

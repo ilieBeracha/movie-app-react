@@ -1,18 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { UserInterface } from '../model/UserInterface';
+import { users } from '../Service/UserDetails';
 
 const UsersSlice = createSlice({
-    name: "login",
-    initialState: {
-        username: "",
-        password: ""
-    },
-    reducers: {
-        onLogin: (state, action) => {
-            const { username , password } = action.payload;
-          }
-    },
+    name: "users",
+    initialState: [] ,
+    reducers:{
+        
+    }
+    
 });
 
-export const { onLogin } = UsersSlice.actions
+export const {  } = UsersSlice.actions
 
 export default UsersSlice.reducer

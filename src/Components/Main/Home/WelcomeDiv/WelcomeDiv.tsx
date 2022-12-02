@@ -1,28 +1,22 @@
-import { useEffect, useState } from "react";
-import { config } from "../../../../config/config";
-import { PopularMoviesInterface } from "../../../../model/PopularMoviesInterface";
-import { apiService } from "../../../../Service/ApiService";
+// import { useEffect, useRef, useState } from "react";
+// import { config } from "../../../../config/config";
+// import { PopularMoviesInterface } from "../../../../model/PopularMoviesInterface";
+// import { apiService } from "../../../../Service/ApiService";
 import "./WelcomeDiv.css";
-import { ToastContainer, toast } from 'react-toastify';
-import { Toast } from "react-toastify/dist/components";
+import { toast } from 'react-toastify';
 import { NavLink } from "react-router-dom";
-
 
 function WelcomeDiv(): JSX.Element {
 
-    // function searchMoviesOrTvShows(query:string){
-        
-    // }
-
-    function toastMess(){
-        toast.info('Coming soon...',{
+    function toastMess() {
+        toast.info('Coming soon...', {
             position: toast.POSITION.TOP_CENTER,
             className: 'discoverToast',
             theme: "colored",
             // hideProgressBar:true,
-            closeOnClick:true,
-            draggable:true,
-            pauseOnHover:false,
+            closeOnClick: true,
+            draggable: true,
+            pauseOnHover: false,
         })
     }
 
@@ -35,9 +29,8 @@ function WelcomeDiv(): JSX.Element {
                     <h2>Explore now</h2>
                 </div>
                 <div className="WelcomeDivAnchor">
-                    {/* <input onChange={(e)=>searchMoviesOrTvShows(e.target.value)} type="text" placeholder="Search" /> */}
-                    <button onClick={()=>{
-                         window.scrollTo({
+                    <button onClick={() => {
+                        window.scrollTo({
                             top: 950,
                             behavior: 'smooth'
                         });
