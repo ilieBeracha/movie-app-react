@@ -19,14 +19,17 @@ function TvPage(): JSX.Element {
     const [SimilarTv, setSimilarTv] = useState<PopularTvShowInterface[]>([])
 
     console.log(tvParams)
-    useEffect(() => {
+    useEffect(()=>{
         scrollTo.scrollTo()
+    },[])
+
+    useEffect(() => {
         apiService.getTvById(tvParams.tvId).then(res => setTv(res))
         apiService.CastTv(tvParams.tvId).then(res => setCast(res))
         apiService.getVideoTv(tvParams.tvId).then(res => setVideo(res[0]))
         apiService.getSimilarTvShow(Number(tvParams.tvId)).then(res => setSimilarTv(res))
-
-    }, [])
+        console.log(video?.key)
+    }, [tvParams.tvId])
 
     return (
         <div className="TvPage">

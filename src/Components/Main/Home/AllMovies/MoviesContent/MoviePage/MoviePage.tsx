@@ -23,11 +23,17 @@ function MoviePage(): JSX.Element {
 
     useEffect(() => {
         scrollTo.scrollTo()
+    }, [])
+
+    useEffect(() => {
+        apiService.getSimilarMovie(Number(movieParams.movieId)).then(res => setSimilarMovies(res));
         apiService.getMovieById(movieParams.movieId).then(res => setMovie(res));
         apiService.CastMovie(movieParams.movieId).then(res => setCast(res));
         apiService.getVideoMovie(movieParams.movieId).then(res => setVideo(res[0]));
-        apiService.getSimilarMovie(Number(movieParams.movieId)).then(res => setSimilarMovies(res))
-    }, [])
+        console.log(video?.key)
+        
+    }, [movieParams.movieId]);
+
     return (
         <div className="MoviePage">
             <div className="MoviePageMainDiv">
