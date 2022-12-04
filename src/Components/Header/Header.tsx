@@ -35,7 +35,7 @@ function Header(): JSX.Element {
     // const usersSelector = useSelector((state: any) => state.users);
     // const dispatch = useDispatch()
     // console.log(usersSelector);
-    
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -51,11 +51,9 @@ function Header(): JSX.Element {
         })
     }
 
-    function checkIfSignIn(name:any){
-        
-    }
-      
+    function checkIfSignIn(name: any) {
 
+    }
 
     return (
         <div className="Header">

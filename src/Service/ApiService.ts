@@ -2,6 +2,7 @@ import axios from "axios";
 import { config } from "../config/config";
 import { MainCast } from "../model/castInterface";
 import { MoviesResponse } from "../model/PopularMoviesInterface";
+import { MainTvInterface } from "../model/PopularTvShowInterface";
 import { MainReviews } from "../model/ReviewsInterface";
 import { MainUpcomingInterface } from "../model/upcomingMoviesInterface";
 import { MainVideoInteface, VideoInterface } from "../model/videoInterface";
@@ -117,6 +118,18 @@ class ApiService {
         console.log(video.results)
         return filteredArr;
     }
+
+    async getSimilarMovie(id:number){
+        let movies:MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
+        console.log(movies.results)
+        return movies.results;
+    }
+    async getSimilarTvShow(id:number){
+        let tv:MainTvInterface = await (await axios.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
+        console.log(tv.results)
+        return tv.results;
+    }
+    
 }
 
 export const apiService = new ApiService;

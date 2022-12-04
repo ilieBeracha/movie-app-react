@@ -14,3 +14,7 @@ export interface PopularTvShowInterface{
     genre_ids: number[]
     original_name:string
 }
+
+export interface MainTvInterface{
+    results: PopularTvShowInterface[]
+}

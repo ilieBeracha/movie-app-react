@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 import { config } from "../../../../../../config/config";
+import { scrollTo } from "../../../../../../functions/scrollTo";
 import { CastInterface } from "../../../../../../model/castInterface";
 import { PopularMoviesInterface } from "../../../../../../model/PopularMoviesInterface";
 import { ReviewsInterface } from "../../../../../../model/ReviewsInterface";
@@ -9,21 +10,23 @@ import { VideoInterface } from "../../../../../../model/videoInterface";
 import { apiService } from "../../../../../../Service/ApiService";
 import Cast from "../../../../cast/cast";
 import Review from "../Review/Review";
+import SingleMovie from "../SingleMovie/SingleMovie";
 import "./MoviePage.css";
 
 function MoviePage(): JSX.Element {
     const [movie, setMovie] = useState<PopularMoviesInterface>();
-    const [cast,setCast] = useState<CastInterface[]>([]);
-    const [video,setVideo] = useState<VideoInterface>();
+    const [cast, setCast] = useState<CastInterface[]>([]);
+    const [video, setVideo] = useState<VideoInterface>();
+    const [similarMovies, setSimilarMovies] = useState<PopularMoviesInterface[]>([])
     // const [reviews,setReviews] = useState<ReviewsInterface[]>()
     const movieParams = useParams();
+
     useEffect(() => {
+        scrollTo.scrollTo()
         apiService.getMovieById(movieParams.movieId).then(res => setMovie(res));
-        apiService.CastMovie(movieParams.movieId).then(res=> setCast(res));
-        apiService.getVideoMovie(movieParams.movieId).then(res=> setVideo(res[0]))
-        console.log(video)
-        // apiService.getMovieReviews(movieParams.movieId).then(res=> setReviews(res))
-        // console.log(reviews)
+        apiService.CastMovie(movieParams.movieId).then(res => setCast(res));
+        apiService.getVideoMovie(movieParams.movieId).then(res => setVideo(res[0]));
+        apiService.getSimilarMovie(Number(movieParams.movieId)).then(res => setSimilarMovies(res))
     }, [])
     return (
         <div className="MoviePage">
@@ -33,28 +36,35 @@ function MoviePage(): JSX.Element {
                     <h3>"{movie?.title}"</h3>
                     <h4>{`"${movie?.tagline}"`}</h4>
                     <p>{movie?.overview}</p>
-                    <p>Genres: {movie?.genres.map((genre)=> <span key={genre.id}>{genre.name}, </span>)}</p>
+                    <p>Genres: {movie?.genres.map((genre) => <span key={genre.id}>{genre.name}, </span>)}</p>
+                </div>
+                <div className="MoviePageRateDiv">
+                    <p>Popularity: {movie?.popularity}</p>
+                    <p>Avg: {movie?.vote_average}</p>
+                </div>
+
+                <div className="TrailerDiv">
+                    <YouTube
+                        videoId={video?.key}
+                    // style={{borderRadius:'20px'}}
+                    />
                 </div>
             </div>
-            <div className="MoviePageRateDiv">
-                <p>Popularity: {movie?.popularity}</p>
-                <p>Avg: {movie?.vote_average}</p>
+            <div className="MoviePageSecondaryDiv">
+                <div className="castHeadings">
+                    <h5>Cast Members: </h5>
+                </div>
+                <div className="castDiv">
+                    {cast.map((member) => <Cast key={member.id} cast={member} />)}
+                </div>
+                <div className="SimilarMoviesHeadings">
+                    <h5>Similar Movies: </h5>
+                </div>
+                <div className="similarMoviesDiv">
+                    {similarMovies.map((movie) => <SingleMovie movie={movie} />)
+                    }
+                </div>
             </div>
-            <div className="TrailerDiv">
-                <YouTube
-                videoId={video?.key}
-                // style={{borderRadius:'20px'}}
-                />
-            </div>
-            <div className="castHeadings">
-                <h5>Cast Members: </h5>
-            </div>
-            <div className="castDiv">
-                {cast.map((member)=> <Cast key={member.id} cast={member}/>)}
-            </div>
-            {/* <div className="MoviePageReviews">
-                {reviews?.map((review)=> <Review review={review}/>)}
-            </div> */}
         </div>
     );
 }

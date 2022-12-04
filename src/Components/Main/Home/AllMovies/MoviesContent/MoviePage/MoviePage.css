@@ -1,30 +1,42 @@
 .MoviePage {
-	width: 80%;
+    width: 80%;
     /* padding-top: 100px; */
     /* background-color: var(--color8); */
     border-radius: 10px;
-    min-height: 600px ;
+    min-height: 600px;
     /* margin-top: 50px; */
     margin: 0 auto;
     display: flex;
     /* justify-content: space-around; */
     justify-content: center;
     /* align-items: center; */
-    flex-direction: column;
+    /* flex-direction: column; */
     padding: 30px;
+    gap: 50px;
 }
 
-.MoviePageMainDiv{
-    width: 100%;
+.MoviePageSecondaryDiv {
+    width: 40%;
+    /* background-color: var(--color8); */
+    border-left: 2px solid black;
+    padding-left: 30px;
+}
+
+.MoviePageMainDiv {
+    width: 60%;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     /* justify-content: spa; */
     /* align-items: center; */
     gap: 20px;
-    
+
 }
 
-.castDiv{
+.MoviePageMainDiv img {
+    width: 200px;
+}
+
+.castDiv {
     display: flex;
     gap: 30px;
     overflow-x: scroll;
@@ -39,19 +51,56 @@
     overflow-x: scroll;
 } */
 
-.MoviePageRateDiv{
+.MoviePageRateDiv {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     gap: 30px;
 }
 
-.TrailerDiv{
+.similarMoviesDiv {
+    height: 300px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    overflow: scroll;
+    overflow-y: hidden;
+    gap: 30px;
+}
+
+.TrailerDiv {
     /* background-color: var(--color5); */
     height: 400px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     border-radius: 50px;
+}
+
+.TrailerDiv iframe {
+    border-radius: 10px;
+    max-width: 800px;
+    max-height: 500px;
+
+}
+
+@media screen and (max-width: 1270px) {
+    .TrailerDiv iframe {
+        max-width: 500px;
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .TrailerDiv iframe {
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .TrailerDiv iframe {
+        max-width: 200px;
+        max-height: 300px;
+    }
 }

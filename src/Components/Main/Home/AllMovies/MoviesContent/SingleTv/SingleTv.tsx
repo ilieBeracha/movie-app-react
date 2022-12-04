@@ -22,7 +22,8 @@ function SingleTv({ tv }: { tv: PopularTvShowInterface }): JSX.Element {
             <label>
                 <input checked={favoriteSelector.map((mov: any) => mov.id).includes(tv.id)} onChange={(e) => dispatchFav(e.target)} id="input" type="checkbox" />
                 <span className="check"></span>
-            </label>            <NavLink to={'/tv/singletv/' + tv.id}>
+            </label>
+            <NavLink to={'/tv/singletv/' + tv.id}>
                 <img src={config.images_url + tv.poster_path} alt="" />
             </NavLink>
             <h6 className="SingleMovieH6">{tv.name}</h6>

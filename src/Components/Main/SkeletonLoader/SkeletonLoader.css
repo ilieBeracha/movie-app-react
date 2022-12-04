@@ -1,0 +1,8 @@
+.SkeletonLoader {
+	height: 250px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position:absolute; */
+}

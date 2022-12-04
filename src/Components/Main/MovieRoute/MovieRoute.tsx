@@ -1,11 +1,14 @@
+import { Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
 import { movieRouteFunction } from "../../../functions/movieRouteFunction";
 import { scrollTo } from "../../../functions/scrollTo";
 import { GenreInterface } from "../../../model/genreInterface";
 import { PopularMoviesInterface } from "../../../model/PopularMoviesInterface";
 import { apiService } from "../../../Service/ApiService";
+import { SkeletonDemoInfo } from "../../../Service/SkeletonLoaderInfo";
 import Genre from "../Genre/Genre";
 import SingleMovie from "../Home/AllMovies/MoviesContent/SingleMovie/SingleMovie";
+import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 import "./MovieRoute.css";
 // import { GenreInterface } from "../../../../model/genreInterface";
 // import { apiService } from "../../../../Service/ApiService";
@@ -14,10 +17,13 @@ import "./MovieRoute.css";
 function MovieRoute(): JSX.Element {
     const [genre, setGenre] = useState<GenreInterface[]>();
     const [movies, setMovies] = useState<PopularMoviesInterface[]>();
+    const [skeleton, setSkeleton] = useState<number[]>([]);
 
     useEffect(() => {
+        scrollTo.scrollTo()
         apiService.getMovieGenres().then(res => setGenre(res));
         apiService.getAllPopularMovies().then(res => setMovies(res))
+        setSkeleton(SkeletonDemoInfo);
     }, [])
 
     return (
@@ -36,7 +42,8 @@ function MovieRoute(): JSX.Element {
             <div className="displayMoviesBy">
                 {
                     !movies ?
-                        <div className="loader">Loading...</div>
+                        // <div className="loader">Loading...</div>
+                        skeleton.map(()=> <SkeletonLoader />)
                         :
                         movies?.map((movie) => <SingleMovie key={movie.id} movie={movie} />)
                 }

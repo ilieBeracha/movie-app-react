@@ -16,7 +16,6 @@ function SingleMovie({ movie }: { movie: PopularMoviesInterface }): JSX.Element 
             dispatch(remove(movie))
         }
     }
-    //             <input checked={favoriteSelector.map((mov:any)=> mov.id ).includes(movie.id)} onChange={(e)=> dispatchFav(e.target)} type="checkbox" />
 
     return (
         <div className="SingleMovie">
