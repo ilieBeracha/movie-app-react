@@ -8,7 +8,7 @@ export interface ReviewsInterface{
     }
     content:string,
     created_at:string,
-    is:string,
+    id:string,
     updated_at:string,
     url:string
 }

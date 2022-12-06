@@ -5,9 +5,11 @@ import { config } from "../../../../../../config/config";
 import { scrollTo } from "../../../../../../functions/scrollTo";
 import { CastInterface } from "../../../../../../model/castInterface";
 import { PopularTvShowInterface } from "../../../../../../model/PopularTvShowInterface";
+import { ReviewsInterface } from "../../../../../../model/ReviewsInterface";
 import { VideoInterface } from "../../../../../../model/videoInterface";
 import { apiService } from "../../../../../../Service/ApiService";
 import Cast from "../../../../cast/cast";
+import Review from "../Review/Review";
 import SingleTv from "../SingleTv/SingleTv";
 import "./TvPage.css";
 
@@ -17,6 +19,7 @@ function TvPage(): JSX.Element {
     const [tv, setTv] = useState<PopularTvShowInterface>();
     const [video, setVideo] = useState<VideoInterface>();
     const [SimilarTv, setSimilarTv] = useState<PopularTvShowInterface[]>([])
+    const [reviews,setReviews] = useState<ReviewsInterface[]>()
 
     console.log(tvParams)
     useEffect(() => {
@@ -27,7 +30,8 @@ function TvPage(): JSX.Element {
         apiService.getTvById(tvParams.tvId).then(res => setTv(res))
         apiService.CastTv(tvParams.tvId).then(res => setCast(res))
         apiService.getVideoTv(tvParams.tvId).then(res => setVideo(res[0]))
-        apiService.getSimilarTvShow(Number(tvParams.tvId)).then(res => setSimilarTv(res))
+        apiService.getSimilarTvShow(Number(tvParams.tvId)).then(res => setSimilarTv(res));
+        apiService.getTvReviews(Number(tvParams.tvId)).then(res=> setReviews(res))
     }, [tvParams])
 
     return (
@@ -66,6 +70,10 @@ function TvPage(): JSX.Element {
 
                     {SimilarTv.map((tv) => <SingleTv tv={tv} />)
 
+                    }
+                </div>
+                <div className="reviewsDiv">
+                    {reviews?.map((rev) => <Review key={rev.id} review={rev} />)
                     }
                 </div>
             </div>

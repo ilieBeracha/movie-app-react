@@ -1,9 +1,18 @@
 .Review {
-	min-width: 300px;
+	min-width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 200px;
     border: 1px solid var(--color8);
+    border-radius: 10px;
 }
+
+.Review img{
+    width: 50px;
+}
+
+/* .reviewP{
+    font-size: 5px;
+} */
