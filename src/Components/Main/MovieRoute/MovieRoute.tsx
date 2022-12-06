@@ -1,5 +1,7 @@
 import { Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies } from "../../../app/MoviesSlice";
 import { movieRouteFunction } from "../../../functions/movieRouteFunction";
 import { scrollTo } from "../../../functions/scrollTo";
 import { GenreInterface } from "../../../model/genreInterface";
@@ -18,11 +20,17 @@ function MovieRoute(): JSX.Element {
     const [genre, setGenre] = useState<GenreInterface[]>();
     const [movies, setMovies] = useState<PopularMoviesInterface[]>();
     const [skeleton, setSkeleton] = useState<number[]>([]);
+    // const moviesSelector = useSelector((state:any)=> state.movies);
+    // const dispatch = useDispatch()
 
     useEffect(() => {
+        // if(moviesSelector.length<1){
+        //     apiService.getAllPopularMovies().then(res=> dispatch(fetchMovies(res)));
+        // }
+        // apiService.getAllPopularMovies().then(res=> setMovies(res));
+        apiService.getAllPopularMovies().then(res=>setMovies(res))
         scrollTo.scrollTo()
         apiService.getMovieGenres().then(res => setGenre(res));
-        apiService.getAllPopularMovies().then(res => setMovies(res))
         setSkeleton(SkeletonDemoInfo);
     }, [])
 
@@ -45,7 +53,7 @@ function MovieRoute(): JSX.Element {
                         // <div className="loader">Loading...</div>
                         skeleton.map(()=> <SkeletonLoader />)
                         :
-                        movies?.map((movie) => <SingleMovie key={movie.id} movie={movie} />)
+                        movies?.map((movie:any) => <SingleMovie key={movie.id} movie={movie} />)
                 }
             </div>
         </div>

@@ -12,7 +12,7 @@ import SingleTv from "../SingleTv/SingleTv";
 import "./TvPage.css";
 
 function TvPage(): JSX.Element {
-    const tvParams = useParams()
+    const tvParams = useParams();
     const [cast, setCast] = useState<CastInterface[]>([])
     const [tv, setTv] = useState<PopularTvShowInterface>();
     const [video, setVideo] = useState<VideoInterface>();
@@ -28,8 +28,7 @@ function TvPage(): JSX.Element {
         apiService.CastTv(tvParams.tvId).then(res => setCast(res))
         apiService.getVideoTv(tvParams.tvId).then(res => setVideo(res[0]))
         apiService.getSimilarTvShow(Number(tvParams.tvId)).then(res => setSimilarTv(res))
-        console.log(video?.key)
-    }, [tvParams.tvId])
+    }, [tvParams])
 
     return (
         <div className="TvPage">

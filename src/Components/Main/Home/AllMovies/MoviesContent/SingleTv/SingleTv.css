@@ -5,7 +5,7 @@
     /* justify-content: center; */
     /* align-items: center; */
     width: 140px;
-    height: 250px;
+    height: 260px;
     /* background-color: var(--color8); */
     border-radius: 10px;
     text-align: center;
@@ -13,7 +13,6 @@
     0px 0px 0px #ffffff;
     -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-
 }
 
 @-webkit-keyframes scale-up-center {

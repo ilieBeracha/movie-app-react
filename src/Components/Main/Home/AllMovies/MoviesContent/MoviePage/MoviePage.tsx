@@ -17,12 +17,14 @@ function MoviePage(): JSX.Element {
     const [movie, setMovie] = useState<PopularMoviesInterface>();
     const [cast, setCast] = useState<CastInterface[]>([]);
     const [video, setVideo] = useState<VideoInterface>();
-    const [similarMovies, setSimilarMovies] = useState<PopularMoviesInterface[]>([])
+    const [similarMovies, setSimilarMovies] = useState<PopularMoviesInterface[]>([]);
+    // const [video]
     // const [reviews,setReviews] = useState<ReviewsInterface[]>()
     const movieParams = useParams();
 
     useEffect(() => {
         scrollTo.scrollTo()
+        
     }, [])
 
     useEffect(() => {
@@ -30,9 +32,9 @@ function MoviePage(): JSX.Element {
         apiService.getMovieById(movieParams.movieId).then(res => setMovie(res));
         apiService.CastMovie(movieParams.movieId).then(res => setCast(res));
         apiService.getVideoMovie(movieParams.movieId).then(res => setVideo(res[0]));
-        console.log(video?.key)
+        console.log(video)
         
-    }, [movieParams.movieId]);
+    }, [movieParams]);
 
     return (
         <div className="MoviePage">
@@ -67,7 +69,7 @@ function MoviePage(): JSX.Element {
                     <h5>Similar Movies: </h5>
                 </div>
                 <div className="similarMoviesDiv">
-                    {similarMovies.map((movie) => <SingleMovie movie={movie} />)
+                    {similarMovies.map((movie) => <SingleMovie key={movie.id} movie={movie} />)
                     }
                 </div>
             </div>

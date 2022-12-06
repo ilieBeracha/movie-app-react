@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies } from "../../../app/MoviesSlice";
+import { fetchTv } from "../../../app/TvShowsSlice";
 import { scrollTo } from "../../../functions/scrollTo";
 import { tvRouteFunction } from "../../../functions/tvRouteFunctions";
 import { GenreInterface } from "../../../model/genreInterface";
@@ -17,14 +20,19 @@ function TvRoute(): JSX.Element {
     const [tvShows, setTvShows] = useState<PopularTvShowInterface[]>()
     const [genre, setGenre] = useState<GenreInterface[]>()
     const [skeleton, setSkeleton] = useState<number[]>([]);
-
+    const tvSelector = useSelector((state: any) => state.tv);
+    const dispatch = useDispatch();
 
     useEffect(() => {
+        if (tvSelector < 1) {
+            apiService.getAllPopularTvShows().then(res => dispatch(fetchTv(res)));
+        }
+        apiService.getAllPopularTvShows().then(res=> setTvShows(res));
         scrollTo.scrollTo()
         apiService.getTvGenres().then(res => setGenre(res))
-        apiService.getAllPopularTvShows().then(res => setTvShows(res))
         setSkeleton(SkeletonDemoInfo);
-    }, [])
+    }, []);
+    
 
     return (
         <div className="TvRoute">
@@ -43,7 +51,7 @@ function TvRoute(): JSX.Element {
                 {!tvShows ?
                     skeleton.map(() => <SkeletonLoader />)
 
-                    : tvShows?.map((tv) => <SingleTv key={tv.id} tv={tv} />)}
+                    : tvShows?.map((tv: any) => <SingleTv key={tv.id} tv={tv} />)}
             </div>
         </div>
     );
