@@ -7,7 +7,6 @@ class MovieRouteFunction {
         filteredPopular = await apiService.getAllPopularMovies();
         filteredPopular = filteredPopular.filter(res => res.genre_ids.includes(genId));
         setMovies(filteredPopular)
-        // console.log(filteredPopular);
     }
 
     async  filterByVoteAverage(setMovies:any) {
@@ -21,7 +20,6 @@ class MovieRouteFunction {
         let filteredArr: PopularMoviesInterface[] = [];
         filteredArr = await apiService.getAllPopularMovies();
         filteredArr = filteredArr.filter(movie => (movie.title).toLocaleLowerCase().includes(query.toLocaleLowerCase()));
-        console.log(filteredArr)
         setMovies(filteredArr)
     }
 }

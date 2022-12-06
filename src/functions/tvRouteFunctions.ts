@@ -7,7 +7,6 @@ class TvRouteFunctions{
         filteredPopular = await apiService.getAllPopularTvShows();
         filteredPopular = filteredPopular.filter(res => res.genre_ids.includes(genId));
         setTvShows(filteredPopular)
-        console.log(filteredPopular);
     }
 
     async  filterByVoteAverage(setTvShows:any) {
@@ -22,7 +21,6 @@ class TvRouteFunctions{
         let filteredArr: PopularTvShowInterface[] = [];
         filteredArr = await apiService.getAllPopularTvShows();
         filteredArr = filteredArr.filter(tv => (tv.name).toLocaleLowerCase().includes(query.toLocaleLowerCase()));
-        console.log(filteredArr)
         setTvShows(filteredArr)
     }
 }

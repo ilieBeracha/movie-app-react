@@ -26,8 +26,10 @@ function SingleTv({ tv }: { tv: PopularTvShowInterface }): JSX.Element {
             <NavLink to={'/tv/singletv/' + tv.id}>
                 <img src={config.images_url + tv.poster_path} alt="" />
             </NavLink>
-            <h6 className="SingleMovieH6">{tv.name}</h6>
-            <p>{tv.first_air_date}</p>
+            <div className="singleTvInfo">
+                <h6 className="SingleMovieH6">{tv.name}</h6>
+                <p>{tv.first_air_date}</p>
+            </div>
         </div>
     );
 }
