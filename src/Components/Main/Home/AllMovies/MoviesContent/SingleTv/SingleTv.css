@@ -2,11 +2,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
     width: 140px;
-    height: 260px;
-    /* background-color: var(--color8); */
+    height: 255px;
     border-radius: 10px;
     text-align: center;
     box-shadow:  10px 10px 10px #bebebe,
@@ -44,6 +41,14 @@
 
 .SingleTv:hover {
     background-color: var(--color2);
+}
+
+.singleTvInfo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 

@@ -12,8 +12,8 @@ function Home(): JSX.Element {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        // apiService.getAllPopularMovies().then(res=> dispatch(fetchMovies(res)));
-        // apiService.getAllPopularTvShows().then(res=> dispatch(fetchTv(res)));
+        apiService.getAllPopularMovies().then(res=> dispatch(fetchMovies(res)));
+        apiService.getAllPopularTvShows().then(res=> dispatch(fetchTv(res)));
     },[])
     return (
         <div className="Home">

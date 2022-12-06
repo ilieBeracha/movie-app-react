@@ -17,19 +17,17 @@ import "./MovieRoute.css";
 // import Genre from "./Genre/Genre";
 
 function MovieRoute(): JSX.Element {
+    const moviesSelector = useSelector((state:any)=> state.movies);
+    const [movies, setMovies] = useState<PopularMoviesInterface[]>(moviesSelector);
     const [genre, setGenre] = useState<GenreInterface[]>();
-    const [movies, setMovies] = useState<PopularMoviesInterface[]>();
     const [skeleton, setSkeleton] = useState<number[]>([]);
-    // const moviesSelector = useSelector((state:any)=> state.movies);
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        // if(moviesSelector.length<1){
-        //     apiService.getAllPopularMovies().then(res=> dispatch(fetchMovies(res)));
-        // }
-        // apiService.getAllPopularMovies().then(res=> setMovies(res));
-        apiService.getAllPopularMovies().then(res=>setMovies(res))
         scrollTo.scrollTo()
+        if(moviesSelector.length<1){
+            apiService.getAllPopularMovies().then(res=> dispatch(fetchMovies(res)));
+        }
         apiService.getMovieGenres().then(res => setGenre(res));
         setSkeleton(SkeletonDemoInfo);
     }, [])

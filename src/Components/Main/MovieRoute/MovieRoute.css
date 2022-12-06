@@ -16,6 +16,7 @@
     height: max-content;
     max-width: 150px;
     min-height: 800px;
+    min-width: 120px;
     padding: 10px;
     /* background-color: var(--color2); */
     position: sticky;
