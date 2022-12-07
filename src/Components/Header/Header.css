@@ -17,7 +17,9 @@
     justify-content: space-around;
 }
 
-
+.mode-icon{
+    cursor: pointer;
+}
 
 .Header .Header_Log {
     width: 100px;

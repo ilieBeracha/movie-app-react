@@ -9,15 +9,29 @@ import "./Home.css";
 import WelcomeDiv from "./WelcomeDiv/WelcomeDiv";
 
 function Home(): JSX.Element {
+    const moviesSelector = useSelector((state: any) => state.movies);
+    const tvSelector = useSelector((state: any) => state.tv);
     const dispatch = useDispatch();
 
-    useEffect(()=>{
-        apiService.getAllPopularMovies().then(res=> dispatch(fetchMovies(res)));
-        apiService.getAllPopularTvShows().then(res=> dispatch(fetchTv(res)));
-    },[])
+    useEffect(() => {
+        if (moviesSelector.length > 1) {
+            apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
+        } else{
+            apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
+            console.log('1')
+
+        }
+        if (tvSelector.length > 1) {
+            apiService.getAllPopularTvShows().then(res => dispatch(fetchTv(res)));
+        } else{
+            apiService.getAllPopularTvShows().then(res => dispatch(fetchTv(res)));
+            console.log('2')
+
+        }
+    }, [])
     return (
         <div className="Home">
-			<WelcomeDiv />
+            <WelcomeDiv />
             <AllMovies />
         </div>
     );
