@@ -11,7 +11,6 @@
 }
 
 .WelcomeDivOverview {
-
     /* z-index: 2; */
     width: 50%;
     display: flex;
@@ -27,6 +26,7 @@
 }
 
 .WelcomeDivImgDiv {
+
     width: 50%;
     display: flex;
     justify-content: center;
@@ -46,8 +46,10 @@
 }
 
 .WelcomeDivAnchor button {
+    color: var(--color7);
+
     text-decoration: none;
-    color: var(--color5);
+    /* color: var(--color5); */
     border: 2px solid var(--color8);
     padding: 10px;
     border-radius: 10px;
@@ -67,6 +69,8 @@
 .WelcomeDivDesp {
     position: relative;
     height: 300px;
+    color: var(--color7);
+
 }
 
 .WelcomeDivAnchor {

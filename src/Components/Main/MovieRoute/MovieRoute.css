@@ -1,16 +1,10 @@
 .MovieRoute {
 	width: 90%;
     min-height: 90%;
-    /* background-color: aqua; */
     margin: 0 auto;
     display: flex;
     padding-top: 30px;
 }
-
-/* .GenreDiv{
-    position: sticky;
-    top: 0;
-} */
 
 .GenreDiv{
     height: max-content;
@@ -19,6 +13,8 @@
     min-width: 120px;
     padding: 10px;
     /* background-color: var(--color2); */
+    color: var(--color7);
+
     position: sticky;
     top: 100px;
 }
@@ -61,6 +57,7 @@
     height: 50px;
     width: 50px;
     border: 1px solid var(--color8);
+    color: var(--color7);
     background-color: transparent;
     border-radius: 50%;
     cursor: pointer;

@@ -1,6 +1,5 @@
-* {
-  /* : #434242 */
-  --Header-Footer: #404258;
+/* * { */
+  /* --Header-Footer: #404258;
   --backgound-color: #474E68;
   --color1: #EFF5F5;
   --color2: #D6E4E5;
@@ -15,7 +14,29 @@
   font-family: 'Montserrat', sans-serif;
   font-family: 'Roboto', sans-serif;
   font-family: 'Rubik', sans-serif;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Sora', sans-serif; */
+/* } */
+
+.App[data-theme='light-mode'] {
+  --color1: #EFF5F5;
+  --color2: #D6E4E5;
+  --color3: #497174;
+  --color4: #EB6440;
+  --color5: #434242;
+  --color6: #F3EFE0;
+  --color7: #222222;
+  --color8: #22A39F;
+}
+
+.App[data-theme='dark-mode'] {
+  --color1: #434242;
+  --color2: #497174;
+  --color3: #EB6440;
+  --color4: #F3EFE0;
+  --color5: #434242;
+  --color6: #F3EFE0;
+  --color7: white;
+  --color8: #22A39F;
 }
 
 body {

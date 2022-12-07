@@ -9,10 +9,13 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import AcUnitSharpIcon from '@mui/icons-material/AcUnitSharp';
 import "./Header.css";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { UserInterface } from "../../model/UserInterface";
 import { users } from "../../Service/UserDetails";
+import { darkMode, lightMode } from "../../app/lightDarkSlice";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -32,13 +35,19 @@ const style = {
 function Header(): JSX.Element {
     const { register, handleSubmit } = useForm<UserInterface>()
     const favoriteSelector = useSelector((state: any) => state.favorite.values);
-    // const usersSelector = useSelector((state: any) => state.users);
-    // const dispatch = useDispatch()
+    const mode = useSelector((state: any) => state.mode.toggle);
+    const dispatch = useDispatch()
     // console.log(usersSelector);
+    const [isLight, setIsLight] = useState<boolean>(true)
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    useEffect(() => {
+        console.log("modeEffect: " + mode);
+
+    }, [mode])
 
     function toastMess() {
         toast.success('Logged In...', {
@@ -55,8 +64,22 @@ function Header(): JSX.Element {
 
     }
 
+
+    function clickedWebMode() {
+        if (isLight) {
+            dispatch(darkMode())
+            setIsLight(!isLight)
+        } else {
+            dispatch(lightMode());
+            setIsLight(!isLight)
+        }
+    }
+
+
     return (
         <div className="Header">
+
+
             <NavLink to={'/'}>
                 <div onClick={() => scrollTo.scrollTo()} className="Header_Headings">
                     <h1>Needs</h1>
@@ -92,9 +115,10 @@ function Header(): JSX.Element {
                     </div>
                     : <></>}
             </div>
+
             <div className="Header_Log">
-                <Avatar className="AvatarLogo" onClick={handleOpen}>I</Avatar>
-                {/* <Button onClick={handleOpen}>Open modal</Button> */}
+                {/* <Avatar className="AvatarLogo" onClick={handleOpen}>I</Avatar>
+                <Button onClick={handleOpen}>Open modal</Button>
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -113,7 +137,13 @@ function Header(): JSX.Element {
                             </form>
                         </Typography>
                     </Box>
-                </Modal>
+                </Modal> */}
+                <div className="mode-icon" onClick={clickedWebMode}>
+                    {mode ?
+                        <DarkModeIcon fontSize="large" />
+                        : <LightModeIcon fontSize="large" />
+                    }
+                </div>
             </div>
         </div>
     );

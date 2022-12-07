@@ -43,7 +43,7 @@ function TvRoute(): JSX.Element {
                 </div>
             </div>
             <div className="displayTvShowsBy">
-                {!tvShows ?
+                {tvShows.length===0 ?
                     skeleton.map(() => <SkeletonLoader />)
 
                     : tvShows?.map((tv: any) => <SingleTv key={tv.id} tv={tv} />)}

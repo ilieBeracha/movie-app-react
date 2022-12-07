@@ -17,25 +17,27 @@ import "./MovieRoute.css";
 // import Genre from "./Genre/Genre";
 
 function MovieRoute(): JSX.Element {
-    const moviesSelector = useSelector((state:any)=> state.movies);
+    const moviesSelector = useSelector((state: any) => state.movies);
     const [movies, setMovies] = useState<PopularMoviesInterface[]>(moviesSelector);
     const [genre, setGenre] = useState<GenreInterface[]>();
     const [skeleton, setSkeleton] = useState<number[]>([]);
     const dispatch = useDispatch()
 
     useEffect(() => {
+        console.log(genre)
         scrollTo.scrollTo()
-        if(moviesSelector.length<1){
-            apiService.getAllPopularMovies().then(res=> dispatch(fetchMovies(res)));
+        if (moviesSelector.length < 1) {
+            apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
         }
-        apiService.getMovieGenres().then(res => setGenre(res));
+            apiService.getMovieGenres().then(res => setGenre(res));
+        
         setSkeleton(SkeletonDemoInfo);
     }, [])
 
     return (
         <div className="MovieRoute">
             <div className="GenreDiv">
-                {genre?.map((gen) => <Genre onclick={() => movieRouteFunction.getMoviesByGenre(gen.id, setMovies)} key={gen.id} id={gen.id} name={gen.name} />)}
+                {genre?.map((gen: any) => <Genre onclick={() => movieRouteFunction.getMoviesByGenre(gen.id, setMovies)} key={gen.id} id={gen.id} name={gen.name} />)}
                 <div className="FilterDiv">
                     <h4>Filters: </h4>
                     <input onChange={(e) => movieRouteFunction.searchMovie(e.target.value, setMovies)} type="text" placeholder="Search Movie" />
@@ -47,11 +49,11 @@ function MovieRoute(): JSX.Element {
             </div>
             <div className="displayMoviesBy">
                 {
-                    !movies ?
+                    movies.length === 0 ?
                         // <div className="loader">Loading...</div>
-                        skeleton.map(()=> <SkeletonLoader />)
+                        skeleton.map(() => <SkeletonLoader />)
                         :
-                        movies?.map((movie:any) => <SingleMovie key={movie.id} movie={movie} />)
+                        movies?.map((movie: any) => <SingleMovie key={movie.id} movie={movie} />)
                 }
             </div>
         </div>

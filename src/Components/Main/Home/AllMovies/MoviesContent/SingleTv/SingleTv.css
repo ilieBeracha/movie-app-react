@@ -6,8 +6,8 @@
     height: 255px;
     border-radius: 10px;
     text-align: center;
-    box-shadow:  10px 10px 10px #bebebe,
-    0px 0px 0px #ffffff;
+    box-shadow: 5px 8px 8px var(--color2);
+    color: var(--color7);
     -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
