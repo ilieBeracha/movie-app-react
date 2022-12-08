@@ -19,10 +19,12 @@ function MoviePage(): JSX.Element {
     const [video, setVideo] = useState<VideoInterface>();
     const [similarMovies, setSimilarMovies] = useState<PopularMoviesInterface[]>([]);
     const [reviews, setReviews] = useState<ReviewsInterface[]>()
+    const [starsPopularity, setStarsPopularity]= useState<string>()
     const movieParams = useParams();
 
     useEffect(() => {
         scrollTo.scrollTo()
+        
     }, [])
 
     useEffect(() => {
@@ -31,7 +33,45 @@ function MoviePage(): JSX.Element {
         apiService.getMovieById(movieParams.movieId).then(res => setMovie(res));
         apiService.CastMovie(movieParams.movieId).then(res => setCast(res));
         apiService.getVideoMovie(movieParams.movieId).then(res => setVideo(res[0]));
+        stars()
     }, [movieParams]);
+
+    function stars(){
+        let avg = Number(movie?.vote_average.toFixed(0));
+        if(avg===1){
+            setStarsPopularity('★')
+        }
+        if(avg===2){
+            setStarsPopularity('★★')
+        }
+        if(avg===3){
+            setStarsPopularity('★★★')
+        }
+        if(avg===4){
+            setStarsPopularity('★★★★')
+        }
+        if(avg===5){
+            setStarsPopularity('★★★★★')
+        }
+        if(avg===6){
+            setStarsPopularity('★★★★★★')
+        }
+        if(avg===7){
+            setStarsPopularity('★★★★★★★')
+        }
+        if(avg===8){
+            setStarsPopularity('★★★★★★★★')
+        }
+        if(avg===8){
+            setStarsPopularity('★★★★★★★★★')
+        }
+        if(avg===9){
+            setStarsPopularity('★★★★★★★★★★')
+        }
+        if(avg===10){
+            setStarsPopularity('★★★★★★★★★★★')
+        }
+    }
 
     return (
         <div className="MoviePage">
@@ -45,7 +85,7 @@ function MoviePage(): JSX.Element {
                 </div>
                 <div className="MoviePageRateDiv">
                     <p>Popularity: {movie?.popularity}</p>
-                    <p>Avg: {movie?.vote_average}</p>
+                    <p>{starsPopularity}</p>
                 </div>
 
                 <div className="TrailerDiv">

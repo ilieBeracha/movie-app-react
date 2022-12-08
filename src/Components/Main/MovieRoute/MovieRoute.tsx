@@ -12,9 +12,7 @@ import Genre from "../Genre/Genre";
 import SingleMovie from "../Home/AllMovies/MoviesContent/SingleMovie/SingleMovie";
 import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 import "./MovieRoute.css";
-// import { GenreInterface } from "../../../../model/genreInterface";
-// import { apiService } from "../../../../Service/ApiService";
-// import Genre from "./Genre/Genre";
+
 
 function MovieRoute(): JSX.Element {
     const moviesSelector = useSelector((state: any) => state.movies);

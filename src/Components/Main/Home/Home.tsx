@@ -14,19 +14,15 @@ function Home(): JSX.Element {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (moviesSelector.length > 1) {
+        if (moviesSelector.length > 0) {
             apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
-        } else{
+        } else {
             apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
-            console.log('1')
-
         }
-        if (tvSelector.length > 1) {
+        if (tvSelector.length > 0) {
             apiService.getAllPopularTvShows().then(res => dispatch(fetchTv(res)));
-        } else{
+        } else {
             apiService.getAllPopularTvShows().then(res => dispatch(fetchTv(res)));
-            console.log('2')
-
         }
     }, [])
     return (
