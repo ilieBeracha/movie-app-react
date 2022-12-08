@@ -7,6 +7,45 @@
     padding-top: 30px;
 }
 
+
+.TvRouteAll {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .TvRouteAll input[type=text] {
+    /* width: 100%; */
+    border: 2px solid var(--color8);
+    background-color: var(--color2);
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+    margin: 10px 0px 10px 0px;
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  
+  .TvRouteAll input[type=text]::placeholder{
+    text-align: center;
+    color: var(--color7);
+  }
+
+  .TvRouteInputDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color2);
+    position: sticky;
+    top: 0;
+  }
+
 .displayTvShowsBy{
     padding-left: 10px;
     margin: auto;

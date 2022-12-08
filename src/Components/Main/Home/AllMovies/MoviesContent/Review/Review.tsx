@@ -6,7 +6,7 @@ function Review({ review }: { review: ReviewsInterface }): JSX.Element {
     return (
         <div className="Review">
             <div className="reviewImg">
-                {config.images_url + review.author_details.avatar_path?
+                {review.author_details.avatar_path?
                     <img src={config.images_url + review.author_details.avatar_path} alt={review.author} />
                 :<div className="noImgReviewDiv">No Image</div>}
             </div>

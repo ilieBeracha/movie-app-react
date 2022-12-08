@@ -27,32 +27,38 @@ function MovieRoute(): JSX.Element {
         if (moviesSelector.length < 1) {
             apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
         }
-            apiService.getMovieGenres().then(res => setGenre(res));
-        
+        apiService.getMovieGenres().then(res => setGenre(res));
+
         setSkeleton(SkeletonDemoInfo);
     }, [])
 
     return (
-        <div className="MovieRoute">
-            <div className="GenreDiv">
-                {genre?.map((gen: any) => <Genre onclick={() => movieRouteFunction.getMoviesByGenre(gen.id, setMovies)} key={gen.id} id={gen.id} name={gen.name} />)}
-                <div className="FilterDiv">
-                    <h4>Filters: </h4>
-                    <input onChange={(e) => movieRouteFunction.searchMovie(e.target.value, setMovies)} type="text" placeholder="Search Movie" />
-                    {/* <button onClick={() => movieRouteFunction.filterByVoteAverage(setMovies)}>Vote Average</button> */}
-                </div>
-                <div className="ScrollToBtn">
-                    <button onClick={() => scrollTo.scrollTo()}>Top</button>
-                </div>
+        <div className="MovieRouteAll">
+            <div className="MovieRouteInputDiv">
+                <input onChange={(e) => movieRouteFunction.searchMovie(e.target.value, setMovies)} type="text" placeholder="Search Movie" />
             </div>
-            <div className="displayMoviesBy">
-                {
-                    movies.length === 0 ?
-                        // <div className="loader">Loading...</div>
-                        skeleton.map(() => <SkeletonLoader />)
-                        :
-                        movies?.map((movie: any) => <SingleMovie key={movie.id} movie={movie} />)
-                }
+            <div className="MovieRoute">
+                <div className="GenreDiv">
+                    {genre?.map((gen: any) => <Genre onclick={() => movieRouteFunction.getMoviesByGenre(gen.id, setMovies)} key={gen.id} id={gen.id} name={gen.name} />)}
+                    <div className="FilterDiv">
+                        {/* <h4>Filters: </h4> */}
+                        {/* <button onClick={() => movieRouteFunction.filterByVoteAverage(setMovies)}>Vote Average</button> */}
+                    </div>
+                    <div className="ScrollToBtn">
+                        <button onClick={() => scrollTo.scrollTo()}>Top</button>
+                    </div>
+                </div>
+                <div className="displayMoviesBy">
+                    {
+                        movies.length === 0 ?
+                            // <div className="loader">No Movies...</div>
+                            <div>No Movies...</div>
+                            // skeleton.map(() => <SkeletonLoader />)
+                            :
+
+                            movies?.map((movie: any) => <SingleMovie key={movie.id} movie={movie} />)
+                    }
+                </div>
             </div>
         </div>
     );

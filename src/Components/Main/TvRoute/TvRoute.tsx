@@ -30,23 +30,29 @@ function TvRoute(): JSX.Element {
     }, []);
 
     return (
-        <div className="TvRoute">
-            <div className="GenreDiv">
-                {genre?.map((gen) => <Genre onclick={() => tvRouteFunction.getTvShowsByGenre(gen.id,setTvShows)} key={gen.name} id={gen.id} name={gen.name} />)}
-                <div className="FilterDiv">
-                    <h4>Filters: </h4>
-                    <input onChange={(e) => tvRouteFunction.searchTvShows(e.target.value, setTvShows)} type="text" placeholder="Search Movie" />
-                    {/* <button onClick={() => tvRouteFunction.filterByVoteAverage(setTvShows)}>Vote Average</button> */}
-                </div>
-                <div className="ScrollToBtn">
-                    <button onClick={() => scrollTo.scrollTo()}>Top</button>
-                </div>
+        <div className="TvRouteAll">
+            <div className="TvRouteInputDiv">
+                <input onChange={(e) => tvRouteFunction.searchTvShows(e.target.value, setTvShows)} type="text" placeholder="Search Movie" />
             </div>
-            <div className="displayTvShowsBy">
-                {tvShows.length===0 ?
-                    skeleton.map(() => <SkeletonLoader />)
 
-                    : tvShows?.map((tv: any) => <SingleTv key={tv.id} tv={tv} />)}
+            <div className="TvRoute">
+                <div className="GenreDiv">
+                    {genre?.map((gen) => <Genre onclick={() => tvRouteFunction.getTvShowsByGenre(gen.id, setTvShows)} key={gen.name} id={gen.id} name={gen.name} />)}
+                    <div className="FilterDiv">
+                        {/* <button onClick={() => tvRouteFunction.filterByVoteAverage(setTvShows)}>Vote Average</button> */}
+                    </div>
+                    <div className="ScrollToBtn">
+                        <button onClick={() => scrollTo.scrollTo()}>Top</button>
+                    </div>
+                </div>
+                <div className="displayTvShowsBy">
+                    {tvShows.length === 0 ?
+                        // skeleton.map(() => <SkeletonLoader />)
+                        <div>No Tv Shows...</div>
+
+                        : tvShows?.map((tv: any) => <SingleTv key={tv.id} tv={tv} />)}
+
+                </div>
             </div>
         </div>
     );
