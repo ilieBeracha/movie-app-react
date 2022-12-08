@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Rating } from "react-simple-star-rating";
 import YouTube from "react-youtube";
 import { start } from "repl";
 import { config } from "../../../../../../config/config";
@@ -20,8 +21,9 @@ function TvPage(): JSX.Element {
     const [tv, setTv] = useState<PopularTvShowInterface>();
     const [video, setVideo] = useState<VideoInterface>();
     const [SimilarTv, setSimilarTv] = useState<PopularTvShowInterface[]>([])
-    const [reviews,setReviews] = useState<ReviewsInterface[]>()
-    const [starsPopularity,setStarsPopularity] = useState<string>()
+    const [reviews, setReviews] = useState<ReviewsInterface[]>()
+    const [starsPopularity, setStarsPopularity] = useState<number | undefined>(Number(tv?.vote_average.toFixed(0)))
+
 
     console.log(tvParams)
     useEffect(() => {
@@ -33,46 +35,9 @@ function TvPage(): JSX.Element {
         apiService.CastTv(tvParams.tvId).then(res => setCast(res))
         apiService.getVideoTv(tvParams.tvId).then(res => setVideo(res[0]))
         apiService.getSimilarTvShow(Number(tvParams.tvId)).then(res => setSimilarTv(res));
-        apiService.getTvReviews(Number(tvParams.tvId)).then(res=> setReviews(res));
-        stars()
+        apiService.getTvReviews(Number(tvParams.tvId)).then(res => setReviews(res));
     }, [tvParams])
 
-    function stars(){
-        let avg = Number(tv?.vote_average.toFixed(0));
-        if(avg===1){
-            setStarsPopularity('★')
-        }
-        if(avg===2){
-            setStarsPopularity('★★')
-        }
-        if(avg===3){
-            setStarsPopularity('★★★')
-        }
-        if(avg===4){
-            setStarsPopularity('★★★★')
-        }
-        if(avg===5){
-            setStarsPopularity('★★★★★')
-        }
-        if(avg===6){
-            setStarsPopularity('★★★★★★')
-        }
-        if(avg===7){
-            setStarsPopularity('★★★★★★★')
-        }
-        if(avg===8){
-            setStarsPopularity('★★★★★★★★')
-        }
-        if(avg===8){
-            setStarsPopularity('★★★★★★★★★')
-        }
-        if(avg===9){
-            setStarsPopularity('★★★★★★★★★★')
-        }
-        if(avg===10){
-            setStarsPopularity('★★★★★★★★★★★')
-        }
-    }
 
     return (
         <div className="TvPage">
@@ -87,12 +52,22 @@ function TvPage(): JSX.Element {
                 </div>
                 <div className="TvPageRateDiv">
                     <p>Popularity: {tv?.popularity}</p>
-                    <p>{starsPopularity}</p>
+                    {tv && (
+                        <Rating
+                            allowFraction={true}
+                            initialValue={Number(tv.vote_average.toFixed(0))}
+                            allowHover={false}
+                            iconsCount={10}
+                            size={18}
+                        />
+                    )}
                 </div>
                 <div className="TrailerDiv">
-                    <YouTube
-                        videoId={video?.key}
-                    />
+                    {video && video.key ? (
+                        <YouTube videoId={video.key} />
+                    ) : (
+                        <p>No video available</p>
+                    )}
                 </div>
             </div>
             <div className="TvPageSecondaryDiv">

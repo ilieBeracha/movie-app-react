@@ -22,7 +22,7 @@ function TvRoute(): JSX.Element {
 
     useEffect(() => {
         scrollTo.scrollTo()
-        if (tvSelector < 1) {
+        if (tvSelector.length === 0) {
             apiService.getAllPopularTvShows().then(res => dispatch(fetchTv(res)));
         }
         apiService.getTvGenres().then(res => setGenre(res))

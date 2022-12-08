@@ -12,6 +12,7 @@ import Cast from "../../../../cast/cast";
 import Review from "../Review/Review";
 import SingleMovie from "../SingleMovie/SingleMovie";
 import "./MoviePage.css";
+import { Rating } from 'react-simple-star-rating'
 
 function MoviePage(): JSX.Element {
     const [movie, setMovie] = useState<PopularMoviesInterface>();
@@ -19,12 +20,13 @@ function MoviePage(): JSX.Element {
     const [video, setVideo] = useState<VideoInterface>();
     const [similarMovies, setSimilarMovies] = useState<PopularMoviesInterface[]>([]);
     const [reviews, setReviews] = useState<ReviewsInterface[]>()
-    const [starsPopularity, setStarsPopularity]= useState<string>()
+    const [starsPopularity, setStarsPopularity] = useState<number | undefined>(Number(movie?.vote_average.toFixed(0)))
     const movieParams = useParams();
 
     useEffect(() => {
         scrollTo.scrollTo()
-        
+
+        console.log(starsPopularity)
     }, [])
 
     useEffect(() => {
@@ -33,45 +35,11 @@ function MoviePage(): JSX.Element {
         apiService.getMovieById(movieParams.movieId).then(res => setMovie(res));
         apiService.CastMovie(movieParams.movieId).then(res => setCast(res));
         apiService.getVideoMovie(movieParams.movieId).then(res => setVideo(res[0]));
-        stars()
-    }, [movieParams]);
+        if (movie) {
+            setStarsPopularity(Number(movie.vote_average.toFixed(0)));
+        }   // console.log(starsPopularity)
+    }, [movie]);
 
-    function stars(){
-        let avg = Number(movie?.vote_average.toFixed(0));
-        if(avg===1){
-            setStarsPopularity('★')
-        }
-        if(avg===2){
-            setStarsPopularity('★★')
-        }
-        if(avg===3){
-            setStarsPopularity('★★★')
-        }
-        if(avg===4){
-            setStarsPopularity('★★★★')
-        }
-        if(avg===5){
-            setStarsPopularity('★★★★★')
-        }
-        if(avg===6){
-            setStarsPopularity('★★★★★★')
-        }
-        if(avg===7){
-            setStarsPopularity('★★★★★★★')
-        }
-        if(avg===8){
-            setStarsPopularity('★★★★★★★★')
-        }
-        if(avg===8){
-            setStarsPopularity('★★★★★★★★★')
-        }
-        if(avg===9){
-            setStarsPopularity('★★★★★★★★★★')
-        }
-        if(avg===10){
-            setStarsPopularity('★★★★★★★★★★★')
-        }
-    }
 
     return (
         <div className="MoviePage">
@@ -85,14 +53,21 @@ function MoviePage(): JSX.Element {
                 </div>
                 <div className="MoviePageRateDiv">
                     <p>Popularity: {movie?.popularity}</p>
-                    <p>{starsPopularity}</p>
+                    <Rating
+                        allowFraction={true}
+                        initialValue={starsPopularity}
+                        allowHover={false}
+                        iconsCount={10}
+                        size={18}
+                    />
                 </div>
 
                 <div className="TrailerDiv">
-                    <YouTube
-                        videoId={video?.key}
-                    // style={{borderRadius:'20px'}}
-                    />
+                    {video && video.key ? (
+                        <YouTube videoId={video.key} />
+                    ) : (
+                        <p>No video available</p>
+                    )}
                 </div>
             </div>
             <div className="MoviePageSecondaryDiv">

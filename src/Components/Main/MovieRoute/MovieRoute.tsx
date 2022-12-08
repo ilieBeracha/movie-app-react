@@ -24,7 +24,7 @@ function MovieRoute(): JSX.Element {
     useEffect(() => {
         console.log(genre)
         scrollTo.scrollTo()
-        if (moviesSelector.length < 1) {
+        if (moviesSelector.length === 0) {
             apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
         }
         apiService.getMovieGenres().then(res => setGenre(res));
@@ -50,7 +50,7 @@ function MovieRoute(): JSX.Element {
                 </div>
                 <div className="displayMoviesBy">
                     {
-                        movies.length === 0 ?
+                        movies.length === undefined ?
                             // <div className="loader">No Movies...</div>
                             <div>No Movies...</div>
                             // skeleton.map(() => <SkeletonLoader />)
