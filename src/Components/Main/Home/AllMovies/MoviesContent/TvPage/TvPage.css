@@ -22,6 +22,17 @@
     color: var(--color7);
 }
 
+.noVideoDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 90%;
+    height: 300px;
+    background-color: var(--color2);
+}
+
+
 .tvPageMainDiv{
     width: 60%;
     display: flex;

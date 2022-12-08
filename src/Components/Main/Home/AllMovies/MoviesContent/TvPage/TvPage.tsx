@@ -36,6 +36,9 @@ function TvPage(): JSX.Element {
         apiService.getVideoTv(tvParams.tvId).then(res => setVideo(res[0]))
         apiService.getSimilarTvShow(Number(tvParams.tvId)).then(res => setSimilarTv(res));
         apiService.getTvReviews(Number(tvParams.tvId)).then(res => setReviews(res));
+        if (tv) {
+            setStarsPopularity(Number(tv.vote_average.toFixed(0)));
+        }
     }, [tvParams])
 
 
@@ -59,6 +62,7 @@ function TvPage(): JSX.Element {
                             allowHover={false}
                             iconsCount={10}
                             size={18}
+                            readonly={true}
                         />
                     )}
                 </div>
@@ -66,7 +70,7 @@ function TvPage(): JSX.Element {
                     {video && video.key ? (
                         <YouTube videoId={video.key} />
                     ) : (
-                        <p>No video available</p>
+                        <div className="noVideoDiv"><p>No video available</p></div>
                     )}
                 </div>
             </div>
@@ -88,7 +92,14 @@ function TvPage(): JSX.Element {
                     }
                 </div>
                 <div className="reviewsDiv">
-                    {reviews?.map((rev) => <Review key={rev.id} review={rev} />)
+                    {
+                        reviews && reviews.length === 0 ? (
+                            <div>No reviews available</div>
+                        ) : (
+                            reviews?.map((review) => (
+                                <Review key={review.id} review={review} />
+                            ))
+                        )
                     }
                 </div>
             </div>

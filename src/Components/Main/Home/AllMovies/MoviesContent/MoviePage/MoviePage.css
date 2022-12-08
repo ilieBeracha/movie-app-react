@@ -90,6 +90,12 @@
     gap: 30px;
 }
 
+.MoviePageRateDiv{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .reviewsDiv{
     height: 300px;
     display: flex;
@@ -151,7 +157,6 @@
     border-radius: 10px;
     max-width: 800px;
     max-height: 500px;
-
 }
 
 @media screen and (max-width: 1270px) {
@@ -171,5 +176,10 @@
     .TrailerDiv iframe {
         max-width: 200px;
         max-height: 300px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .MoviePageRateDiv{
+        flex-direction: column;
     }
 }

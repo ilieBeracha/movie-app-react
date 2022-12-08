@@ -59,6 +59,7 @@ function MoviePage(): JSX.Element {
                         allowHover={false}
                         iconsCount={10}
                         size={18}
+                        readonly={true}
                     />
                 </div>
 
@@ -66,7 +67,7 @@ function MoviePage(): JSX.Element {
                     {video && video.key ? (
                         <YouTube videoId={video.key} />
                     ) : (
-                        <p>No video available</p>
+                        <div className="noVideoDiv"><p>No video available</p></div>
                     )}
                 </div>
             </div>
@@ -85,7 +86,14 @@ function MoviePage(): JSX.Element {
                     }
                 </div>
                 <div className="reviewsDiv">
-                    {reviews?.map((rev) => <Review key={rev.id} review={rev} />)
+                {
+                        reviews && reviews.length === 0 ? (
+                            <div>No reviews available</div>
+                        ) : (
+                            reviews?.map((review) => (
+                                <Review key={review.id} review={review} />
+                            ))
+                        )
                     }
                 </div>
             </div>
