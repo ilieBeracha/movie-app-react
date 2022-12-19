@@ -3,14 +3,10 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/exports";
 import { toast } from "react-toastify";
-import logged, { checkLogged } from "../../app/logged";
+import { checkLogged } from "../../app/logged";
 import { UsersModel } from "../../model/UserInterface";
-
 import { apiService } from "../../Service/ApiService";
-
 import "./LogPopUp.css";
-// import { Dispatch } from "redux";
-
 
 function LogPopUp(): JSX.Element {
   const { register, handleSubmit, formState: { errors } } = useForm<UsersModel>()
@@ -34,37 +30,35 @@ function LogPopUp(): JSX.Element {
     console.log(user)
     apiService.register(user).then((res) => {
       if (res === 200) {
-        // alert('Registerd, Please Login');
-        // dispatch(checkLogged(true))
+        dispatch(checkLogged(true))
       } else {
         toastMessErrorRegister()
       }
     })
   }
 
-
   function toastMessError() {
     toast.error('username or password incorrect', {
-        position: toast.POSITION.TOP_CENTER,
-        className: 'discoverToast',
-        theme: "colored",
-        // hideProgressBar:true,
-        closeOnClick: true,
-        draggable: true,
-        pauseOnHover: false,
+      position: toast.POSITION.TOP_CENTER,
+      className: 'discoverToast',
+      theme: "colored",
+      // hideProgressBar:true,
+      closeOnClick: true,
+      draggable: true,
+      pauseOnHover: false,
     })
-}
+  }
+
   function toastMessErrorRegister() {
     toast.error('Cant Register', {
-        position: toast.POSITION.TOP_CENTER,
-        className: 'discoverToast',
-        theme: "colored",
-        // hideProgressBar:true,
-        closeOnClick: true,
-        draggable: true,
-        pauseOnHover: false,
+      position: toast.POSITION.TOP_CENTER,
+      className: 'discoverToast',
+      theme: "colored",
+      closeOnClick: true,
+      draggable: true,
+      pauseOnHover: false,
     })
-}
+  }
 
   return (
     <div className="logPopUp">
@@ -77,6 +71,7 @@ function LogPopUp(): JSX.Element {
               <input required placeholder="username" type="text"  {...register('username')} />
               <input required placeholder="password" type="password" {...register('password')} />
               <button>log in</button>
+              <a onClick={()=> dispatch(checkLogged(true))} >Guest</a>
             </form>
             : <form onSubmit={handleSubmit(registerFunction)} action="">
               <input required placeholder="First Name" type="text"  {...register('firstName')} />
@@ -91,10 +86,11 @@ function LogPopUp(): JSX.Element {
           {
             toLog ?
               "Register"
-              : "Login"}
+              :
+              "Login"}
         </button>
       </div>
-     </div>
+    </div>
   );
 }
 
