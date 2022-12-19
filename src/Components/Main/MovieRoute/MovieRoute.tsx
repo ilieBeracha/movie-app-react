@@ -24,7 +24,7 @@ function MovieRoute(): JSX.Element {
     useEffect(() => {
         console.log(genre)
         scrollTo.scrollTo()
-        if (moviesSelector.length === 0) {
+        if (moviesSelector.length > 0) {
             apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
         }
         apiService.getMovieGenres().then(res => setGenre(res));

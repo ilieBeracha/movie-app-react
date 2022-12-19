@@ -39,6 +39,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  z-index: 3;
   background-color: var(--color2);
   position: sticky;
   top: 0;

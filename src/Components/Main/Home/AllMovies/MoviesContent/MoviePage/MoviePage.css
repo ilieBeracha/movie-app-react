@@ -160,6 +160,17 @@
 }
 
 @media screen and (max-width: 1270px) {
+    .MoviePage{
+        display: flex;
+        flex-direction: column;
+    }
+    .MoviePageMainDiv{
+        width: 100%;
+    }
+    .MoviePageSecondaryDiv{
+        width: 100%;
+        padding: 10px;
+    }
     .TrailerDiv iframe {
         max-width: 500px;
         max-height: 300px;
@@ -174,7 +185,7 @@
 }
 @media screen and (max-width: 550px) {
     .TrailerDiv iframe {
-        max-width: 200px;
+        max-width: 320px;
         max-height: 300px;
     }
 }

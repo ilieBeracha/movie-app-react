@@ -92,6 +92,10 @@ function TvPage(): JSX.Element {
                     }
                 </div>
                 <div className="reviewsDiv">
+                    
+                <div className="SimilarTvHeadings">
+                  
+                </div>
                     {
                         reviews && reviews.length === 0 ? (
                             <div>No reviews available</div>

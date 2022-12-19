@@ -1,4 +1,10 @@
-export interface UserInterface{
+
+export interface UsersModel{
+    id?:number,
+    firstName:string,
+    lastName:string,
+    email:string
     username:string,
-    password:string
+    password:string,
+    // role:UserRole
 }

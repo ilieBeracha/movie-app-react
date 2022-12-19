@@ -129,6 +129,40 @@ class ApiService {
         console.log(tv.results)
         return tv.results;
     }
+
+
+
+    
+    async logIn(userLogged: any) {
+        let userLoggedString = JSON.stringify(userLogged)
+        console.log(JSON.stringify(userLogged))
+        const response = await fetch('http://localhost:3020/api/user/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            body: userLoggedString
+        })
+
+        return response.status
+        
+    }
+
+
+    async register(userLogged: any) {
+        let userLoggedString = JSON.stringify(userLogged)
+        console.log(JSON.stringify(userLogged))
+        const response = await fetch('http://localhost:3020/api/user/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            body: userLoggedString
+        })
+        return response.status
+    }
     
 }
 

@@ -11,7 +11,7 @@ function Footer(): JSX.Element {
 
                 <div className="footer-left">
 
-                    <h3>Company<span>logo</span></h3>
+                    <h3><span>NEEDS</span></h3>
 
                     <p className="footer-links">
                         <a href="#" className="link-1">Home</a>

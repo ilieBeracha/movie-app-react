@@ -1,26 +1,20 @@
 import { Avatar, Box, Button, Modal, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { scrollTo } from "../../functions/scrollTo";
+import { scrollTo } from "../../../functions/scrollTo";
 import HomeIcon from '@mui/icons-material/Home';
 import MovieIcon from '@mui/icons-material/Movie';
 import TvIcon from '@mui/icons-material/Tv';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import AcUnitSharpIcon from '@mui/icons-material/AcUnitSharp';
 import "./Header.css";
-import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { UserInterface } from "../../model/UserInterface";
-import { users } from "../../Service/UserDetails";
-import { darkMode, lightMode } from "../../app/lightDarkSlice";
+import { darkMode, lightMode } from "../../../app/lightDarkSlice";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 // import img from '/images/logo.png'
 
 
 function Header(): JSX.Element {
-    const { register, handleSubmit } = useForm<UserInterface>()
     const favoriteSelector = useSelector((state: any) => state.favorite.values);
     const mode = useSelector((state: any) => state.mode.toggle);
     const dispatch = useDispatch()
@@ -53,7 +47,7 @@ function Header(): JSX.Element {
             <NavLink to={'/'}>
                 <div onClick={() => scrollTo.scrollTo()} className="Header_Headings">
                     
-                    <h1>Needs</h1>
+                    {/* <h1>Needs</h1> */}
                 </div>
             </NavLink>
 

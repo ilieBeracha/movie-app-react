@@ -31,7 +31,7 @@ function WelcomeDiv(): JSX.Element {
                 <div className="WelcomeDivAnchor">
                     <button onClick={() => {
                         window.scrollTo({
-                            top: 950,
+                            top: 660,
                             behavior: 'smooth'
                         });
                     }}>Dicover</button>
