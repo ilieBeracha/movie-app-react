@@ -53,7 +53,7 @@
     min-height: 90%;
     gap: 30px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     /* overflow: hidden; */
     flex-wrap: wrap;
