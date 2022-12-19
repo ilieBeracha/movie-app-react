@@ -8,6 +8,14 @@ import { MainUpcomingInterface } from "../model/upcomingMoviesInterface";
 import { MainVideoInteface, VideoInterface } from "../model/videoInterface";
 
 class ApiService {
+    // axios.interceptors.request.use(config => {
+    //     const token = localStorage.getItem('token');
+    //     if (token) {
+    //       config.headers.Authorization = `Bearer ${token}`;
+    //     }
+    //     return config;
+    //   });
+
     async getPopularMovies() {
         let movies: MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
         return movies.results;
@@ -56,7 +64,6 @@ class ApiService {
 
     async getTrendingMovie(){
         let trending:MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${config.API_KEY}`)).data;
-        console.log(trending.results)
         return trending.results;
     }
     async getTrendingTv(){
@@ -115,18 +122,15 @@ class ApiService {
         let video: MainVideoInteface = await (await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${config.API_KEY}&language=en-US`)).data;
         filteredArr = video.results.filter(vid=> vid.name.includes('Official'))
         // let video: MainVideoInteface = await (await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${config.API_KEY}&append_to_response=videos`)).data;
-        console.log(video.results)
         return filteredArr;
     }
 
     async getSimilarMovie(id:number){
         let movies:MoviesResponse = await (await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
-        console.log(movies.results)
         return movies.results;
     }
     async getSimilarTvShow(id:number){
         let tv:MainTvInterface = await (await axios.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${config.API_KEY}&language=en-US&page=1`)).data;
-        console.log(tv.results)
         return tv.results;
     }
 
@@ -135,7 +139,6 @@ class ApiService {
     
     async logIn(userLogged: any) {
         let userLoggedString = JSON.stringify(userLogged)
-        console.log(JSON.stringify(userLogged))
         const response = await fetch('http://localhost:3020/api/user/login', {
             method: 'POST',
             headers: {
@@ -145,14 +148,13 @@ class ApiService {
             body: userLoggedString
         })
 
-        return response.status
+        return response
         
     }
 
 
     async register(userLogged: any) {
         let userLoggedString = JSON.stringify(userLogged)
-        console.log(JSON.stringify(userLogged))
         const response = await fetch('http://localhost:3020/api/user/register', {
             method: 'POST',
             headers: {
@@ -161,7 +163,7 @@ class ApiService {
             mode: 'cors',
             body: userLoggedString
         })
-        return response.status
+        return response
     }
     
 }

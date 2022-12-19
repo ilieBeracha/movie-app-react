@@ -25,7 +25,7 @@ function TvPage(): JSX.Element {
     const [starsPopularity, setStarsPopularity] = useState<number | undefined>(Number(tv?.vote_average.toFixed(0)))
 
 
-    console.log(tvParams)
+
     useEffect(() => {
         scrollTo.scrollTo()
     }, [])

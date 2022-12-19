@@ -26,7 +26,7 @@ function MoviePage(): JSX.Element {
     useEffect(() => {
         scrollTo.scrollTo()
 
-        console.log(starsPopularity)
+    
     }, [])
 
     useEffect(() => {

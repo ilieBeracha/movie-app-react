@@ -66,3 +66,15 @@
     top: 2px;
     right: 2px;
 }
+
+@media screen and (max-width: 1270px) {
+  .SingleTv{
+    width: 130px;
+    height: 215px;
+  }
+
+  .SingleTv img{
+    width: 130px;
+    height: 160px;
+  }
+}

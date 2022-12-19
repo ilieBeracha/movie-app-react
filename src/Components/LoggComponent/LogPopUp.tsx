@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/exports";
 import { toast } from "react-toastify";
 import { checkLogged } from "../../app/logged";
+import { saveUsername } from "../../app/userSlice";
 import { UsersModel } from "../../model/UserInterface";
 import { apiService } from "../../Service/ApiService";
 import "./LogPopUp.css";
@@ -14,11 +15,14 @@ function LogPopUp(): JSX.Element {
   const loginSelector = useSelector((state: any) => state.logged);
   const [toLog, setToLogg] = useState<boolean>(true);
 
-
   function checkLoggedUser(user: UsersModel) {
-    console.log(user)
+
     apiService.logIn(user).then(async (res) => {
-      if (res === 200) {
+      const token = await res.json();
+      window.localStorage.setItem('token',JSON.stringify(token))
+      if (res.status === 200) {
+       
+        dispatch(saveUsername(user.username))
         dispatch(checkLogged(true))
       } else {
         toastMessError()
@@ -27,9 +31,8 @@ function LogPopUp(): JSX.Element {
   }
 
   function registerFunction(user: UsersModel) {
-    console.log(user)
     apiService.register(user).then((res) => {
-      if (res === 200) {
+      if (res.status === 200) {
         dispatch(checkLogged(true))
       } else {
         toastMessErrorRegister()
@@ -71,7 +74,7 @@ function LogPopUp(): JSX.Element {
               <input required placeholder="username" type="text"  {...register('username')} />
               <input required placeholder="password" type="password" {...register('password')} />
               <button>log in</button>
-              <a onClick={()=> dispatch(checkLogged(true))} >Guest</a>
+              <a onClick={() => dispatch(checkLogged(true))} >Guest</a>
             </form>
             : <form onSubmit={handleSubmit(registerFunction)} action="">
               <input required placeholder="First Name" type="text"  {...register('firstName')} />

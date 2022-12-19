@@ -5,7 +5,6 @@ const TvShowsSlice = createSlice({
   initialState:[],
   reducers: {
     fetchTv:(state,actions)=>{
-      console.log(actions.payload)
         return state = actions.payload
     }
   }

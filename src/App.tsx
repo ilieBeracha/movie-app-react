@@ -13,10 +13,7 @@ import LogPopUp from './Components/LoggComponent/LogPopUp';
 function App() {
   const mode = useSelector((state: any) => state.mode.toggle)
   const LoggedSelector = useSelector((state: any) => state.logged)
-  useEffect(() => {
-    console.log(mode)
-    console.log(LoggedSelector)
-  }, []);
+  
 
   return (
     <div className="App" data-theme={mode ? 'dark-mode' : 'light-mode'}>

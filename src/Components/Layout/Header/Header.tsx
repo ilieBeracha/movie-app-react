@@ -23,12 +23,6 @@ function Header(): JSX.Element {
 
     const [open, setOpen] = useState(false);
 
-    useEffect(() => {
-        console.log("modeEffect: " + mode);
-
-    }, [mode])
-
-
     function clickedWebMode() {
         if (isLight) {
             dispatch(darkMode())
