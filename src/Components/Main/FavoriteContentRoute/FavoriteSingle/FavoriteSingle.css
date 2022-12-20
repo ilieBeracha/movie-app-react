@@ -1,8 +1,9 @@
 .FavoriteSingle {
-    border-bottom: 2px solid black;
-	width: 60%;
-    margin: 0 auto;
-
+    border-bottom: 2px solid cadetblue;
+    padding: 10px;
+	width: 280px;
+    /* margin: 0 auto; */
+    /* background-color: var(--color5); */
 }
 
 .FavoriteSingleOverview{
@@ -10,8 +11,10 @@
 }
 
 .FavoriteSingleContainer{
-    height: 200px;
+    text-align: center;
+    /* height: 200px; */
     display: flex;
+    /* flex-direction: column; */
     justify-content: space-around;
     align-items: center;
 }
@@ -28,5 +31,5 @@
 }
 
 .FavoriteSingleTitle{
-    width: 300px;
+    width: 100%;
 }

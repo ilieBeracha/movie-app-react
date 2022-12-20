@@ -5,6 +5,7 @@
 import "./WelcomeDiv.css";
 import { toast } from 'react-toastify';
 import { NavLink } from "react-router-dom";
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 function WelcomeDiv(): JSX.Element {
 
@@ -29,12 +30,13 @@ function WelcomeDiv(): JSX.Element {
                     <h2>Explore now</h2>
                 </div>
                 <div className="WelcomeDivAnchor">
-                    <button onClick={() => {
+                    {/* <button onClick={() => {
                         window.scrollTo({
-                            top: 660,
+                            top: 700,
                             behavior: 'smooth'
                         });
-                    }}>Dicover</button>
+                    }}>Dicover</button> */}
+                    <ArrowDownwardIcon fontSize="large"/>
                 </div>
             </div>
             <div className="WelcomeDivImage">

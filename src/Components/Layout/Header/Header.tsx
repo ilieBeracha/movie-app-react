@@ -62,14 +62,14 @@ function Header(): JSX.Element {
                 <div className="Header_NavBar_div">
                     <NavLink to={'/tv'}>
                         <TvIcon fontSize="medium" />
-                        <span>Tv Shows</span>
+                        <span>Tv</span>
                     </NavLink>
                 </div>
                 {favoriteSelector.length !== 0 ?
                     <div className="Header_NavBar_div">
                         <NavLink to={'/fav'}>
                             <FavoriteIcon fontSize="medium" />
-                            <span>Favorite</span>
+                            <span>Wishlist</span>
                         </NavLink>
                     </div>
                     : <></>}

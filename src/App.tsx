@@ -18,14 +18,15 @@ function App() {
   return (
     <div className="App" data-theme={mode ? 'dark-mode' : 'light-mode'}>
       {/* <Layout /> */}
-      <Routes>
-        {
-          LoggedSelector === false ?
-            <Route path='*' element={<LogPopUp />}></Route>
-            :
-            <Route path='*' element={<Layout />}></Route>
-        }
-      </Routes>
+      {/* <Routes> */}
+        {/* { */}
+          {/* LoggedSelector === false ? */}
+            {/* <Route path='*' element={<LogPopUp />}></Route> */}
+            {/* : */}
+            {/* <Route path='*' element={<Layout />}></Route> */}
+            <Layout />
+        {/* } */}
+      {/* </Routes> */}
 
     </div>
   );

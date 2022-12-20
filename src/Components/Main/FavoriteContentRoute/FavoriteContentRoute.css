@@ -1,5 +1,9 @@
 .FavoriteContentRoute {
 	display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    align-items: center;
+    /* min-height: 800px; */
+    /* min-height: 100%; */
     gap: 30px;
 }

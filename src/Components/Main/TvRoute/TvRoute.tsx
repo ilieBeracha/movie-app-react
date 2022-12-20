@@ -23,11 +23,18 @@ function TvRoute(): JSX.Element {
     useEffect(() => {
         scrollTo.scrollTo()
         if (tvSelector.length === 0) {
-            apiService.getAllPopularTvShows().then(res => dispatch(fetchTv(res)));
+            getAllTvAgain()
         }
         apiService.getTvGenres().then(res => setGenre(res))
         setSkeleton(SkeletonDemoInfo);
     }, []);
+
+    async function getAllTvAgain() {
+        await apiService.getAllPopularTvShows().then(res => {
+            dispatch(fetchTv(res))
+            setTvShows(res)
+        });
+    }
 
     return (
         <div className="TvRouteAll">
@@ -47,8 +54,8 @@ function TvRoute(): JSX.Element {
                 </div>
                 <div className="displayTvShowsBy">
                     {tvShows.length === 0 ?
-                        // skeleton.map(() => <SkeletonLoader />)
-                        <div>No Tv Shows...</div>
+                        skeleton.map(() => <SkeletonLoader />)
+                        // <div>No Tv Shows...</div>
 
                         : tvShows?.map((tv: any) => <SingleTv key={tv.id} tv={tv} />)}
 

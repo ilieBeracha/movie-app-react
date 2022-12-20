@@ -22,15 +22,22 @@ function MovieRoute(): JSX.Element {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        console.log(genre)
         scrollTo.scrollTo()
-        if (moviesSelector.length === 0) {
-            apiService.getAllPopularMovies().then(res => dispatch(fetchMovies(res)));
+        if (movies.length  ===0) {
+           getAllMoviesAgain()
         }
         apiService.getMovieGenres().then(res => setGenre(res));
 
         setSkeleton(SkeletonDemoInfo);
     }, [])
+
+    async function getAllMoviesAgain(){
+        await apiService.getAllPopularMovies().then(res =>{
+             dispatch(fetchMovies(res))
+             setMovies(res)
+            });
+        console.log(2);
+    }
 
     return (
         <div className="MovieRouteAll">
@@ -50,10 +57,10 @@ function MovieRoute(): JSX.Element {
                 </div>
                 <div className="displayMoviesBy">
                     {
-                        movies.length === undefined ?
+                        movies.length === 0 ?
                             // <div className="loader">No Movies...</div>
-                            <div>No Movies...</div>
-                            // skeleton.map(() => <SkeletonLoader />)
+                            // <div>No Movies...</div>
+                            skeleton.map(() => <SkeletonLoader />)
                             :
 
                             movies?.map((movie: any) => <SingleMovie key={movie.id} movie={movie} />)
