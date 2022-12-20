@@ -141,7 +141,7 @@ input:checked[type="checkbox"]~.check:after {
 @media screen and (max-width: 1270px) {
   .SingleMovie{
     width: 130px;
-    height: 215px;
+    height: 235px;
   }
 
   .SingleMovie img{
